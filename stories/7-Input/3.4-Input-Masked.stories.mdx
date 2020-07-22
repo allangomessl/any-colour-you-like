@@ -1,0 +1,51 @@
+import { Meta, Story, Preview, Props, Source, Mdx } from '@storybook/addon-docs/blocks'
+import { Input, Button, Row, Col } from 'universe-ui'
+import moment from 'moment'
+
+<Meta title="Input/Masked" component={Input.Text} />
+
+# Input Masked
+
+<br /><br />
+
+<Preview>
+  <Story name="Decimal">
+    <Input.Masked type='decimal' label='Decimal' />
+  </Story>
+</Preview>
+
+<br /><br />
+
+<Preview>
+  <Story name="Document">
+    <Input.Masked type='doc' label='Document' />
+  </Story>
+</Preview>
+
+<br /><br />
+
+<Preview>
+  <Story name="Postal Code">
+    <Input.Masked type='postal-code' label='Postal Code' />
+  </Story>
+</Preview>
+
+<br /><br />
+
+<Preview>
+  <Story name="Credit Card">
+    <Input.Masked type='credit-card' label='Credit Card' />
+  </Story>
+</Preview>
+
+<br /><br />
+
+<Preview>
+  <Story name="Car Plate">
+    <Input.Masked type='car-plate' label='Car Plate' />
+  </Story>
+</Preview>
+
+
+## Props
+<Props of={Input.Masked} />

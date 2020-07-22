@@ -1,0 +1,22 @@
+{
+  "name": "@side-of-the/rp",
+  "version": "0.0.1",
+  "author": "Allan Gomes <allanmaiagomes@gmail.com>",
+  "scripts": {
+    "build": "tsc -p .",
+    "deploy": ""
+  },
+  "repository": "git@github.com:allangomessl/side-of-the-ui.git",
+  "devDependencies": {
+    "@types/react": "^16.9.38",
+    "react": "^16.13.1",
+    "typescript": "^3.9.5"
+  },
+  "main": "./dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}

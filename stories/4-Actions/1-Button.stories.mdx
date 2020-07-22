@@ -1,0 +1,195 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks'
+import { Add } from '@styled-icons/material/Add'
+
+import { Button, Row, Col } from 'universe-ui'
+
+<Meta title="Actions/Button" component={Button} />
+
+# Button
+
+## Forms
+<Preview>
+  <Story name="forms">
+    <Row justify='space-around' wrap>
+      <Button>Hello Button</Button>
+      <Button Icon={Add} />
+      <Button Icon={Add}> Hello Button</Button>
+      <Button Icon={Add} circle />
+      <Button Icon={Add} circle placeholder='With Text'>Hello Button</Button>
+    </Row>
+  </Story>
+</Preview>
+
+## Colors
+<Preview>
+  <Story name="colors">
+    <Col gap='16px' gap='16px'>
+      <Row justify='space-around' wrap margin='b4'>
+        <Button color='red'>Hello Button</Button>
+        <Button color='orange' Icon={Add} />
+        <Button color='yellow' Icon={Add}> Hello Button</Button>
+        <Button color='green' Icon={Add} circle />
+        <Button color='blue' Icon={Add} circle placeholder='With Text'>Hello Button</Button>
+      </Row>
+      <Row justify='space-around' wrap>
+        <Button w='100%' maxW='100px' color='red'>Red</Button>
+        <Button w='100%' maxW='100px' color='red.light'>Light</Button>
+        <Button w='100%' maxW='100px' color='red.dark'>Dark</Button>
+      </Row>
+      <Row justify='space-around' wrap>
+        <Button w='100%' maxW='100px' color='orange'>Orange</Button>
+        <Button w='100%' maxW='100px' color='orange.light'>Light</Button>
+        <Button w='100%' maxW='100px' color='orange.dark'>Dark</Button>
+      </Row>
+      <Row justify='space-around' wrap>
+        <Button w='100%' maxW='100px' color='yellow'>Yellow</Button>
+        <Button w='100%' maxW='100px' color='yellow.light'>Light</Button>
+        <Button w='100%' maxW='100px' color='yellow.dark'>Dark</Button>
+      </Row>
+      <Row justify='space-around' wrap>
+        <Button w='100%' maxW='100px' color='green'>Green</Button>
+        <Button w='100%' maxW='100px' color='green.light'>Light</Button>
+        <Button w='100%' maxW='100px' color='green.dark'>Dark</Button>
+      </Row>
+      <Row justify='space-around' wrap>
+        <Button w='100%' maxW='100px' color='blue'>Blue</Button>
+        <Button w='100%' maxW='100px' color='blue.light'>Light</Button>
+        <Button w='100%' maxW='100px' color='blue.dark'>Dark</Button>
+      </Row>
+      <Row justify='space-around' wrap>
+        <Button w='100%' maxW='100px' color='purple'>Purple</Button>
+        <Button w='100%' maxW='100px' color='purple.light'>Light</Button>
+        <Button w='100%' maxW='100px' color='purple.dark'>Dark</Button>
+      </Row>
+      <Row justify='space-around' wrap>
+        <Button w='100%' maxW='100px' color='pink'>Pink</Button>
+        <Button w='100%' maxW='100px' color='pink.light'>Light</Button>
+        <Button w='100%' maxW='100px' color='pink.dark'>Dark</Button>
+      </Row>
+      <Row justify='space-around' wrap>
+        <Button w='100%' maxW='100px' color='grey'>Grey</Button>
+        <Button w='100%' maxW='100px' color='grey.light'>Light</Button>
+        <Button w='100%' maxW='100px' color='grey.dark'>Dark</Button>
+      </Row>
+      <Row justify='space-around' wrap>
+        <Button w='100%' maxW='100px' color='teal'>Teal</Button>
+        <Button w='100%' maxW='100px' color='teal.light'>Light</Button>
+        <Button w='100%' maxW='100px' color='teal.dark'>Dark</Button>
+      </Row>
+      <Row justify='center'>
+        <strong>More Colors</strong>
+      </Row>
+      <Row justify='space-around' wrap>
+        <Button w='100%' maxW='100px' color='brown'>Brown</Button>
+        <Button w='100%' maxW='100px' color='violet'>Violet</Button>
+        <Button w='100%' maxW='100px' color='olive'>Olive</Button>
+        <Button w='100%' maxW='100px' color='white'>White</Button>
+        <Button w='100%' maxW='100px' color='black'>Black</Button>
+      </Row>
+      <Row justify='center'>
+        <strong>Custom Color</strong>
+      </Row>
+      <Row justify='center'>
+        <Button fg='black' color='linear-gradient(red, orange, yellow, teal, blue, purple)'>Any Colour You Like</Button>
+      </Row>
+    </Col>
+  </Story>
+</Preview>
+
+## Sizes
+<Preview>
+  <Story name="sizes">
+    <Row justify='space-around' wrap>
+      <Button size='0'>Size 0</Button>
+      <Button size='1'>Size 1</Button>
+      <Button size='2'>Size 2</Button>
+      <Button size='3'>Size 3</Button>
+      <Button size='4'>Size 4</Button>
+      <Button size='5'>Normal</Button>
+      <Button size='6'>Size 6</Button>
+      <Button size='7'>Size 7</Button>
+      <Button size='8'>Size 8</Button>
+      <Button size='9'>Size 9</Button>
+      <Button size='10'>Size 10</Button>
+    </Row>
+  </Story>
+</Preview>
+
+## Inverted
+<Preview>
+  <Story name="inverted">
+    <Col gap='16px' gap='16px'>
+      <Row justify='space-around' wrap margin='b4'>
+        <Button inverted color='red'>Hello Button</Button>
+        <Button inverted color='orange' Icon={Add} />
+        <Button inverted color='yellow' Icon={Add}> Hello Button</Button>
+        <Button inverted color='green' Icon={Add} circle />
+        <Button inverted color='blue' Icon={Add} circle placeholder='With Text'>Hello Button</Button>
+      </Row>
+      <Row justify='space-around' wrap>
+        <Button w='100%' maxW='100px' inverted color='red'>Red</Button>
+        <Button w='100%' maxW='100px' inverted color='red.light'>Light</Button>
+        <Button w='100%' maxW='100px' inverted color='red.dark'>Dark</Button>
+      </Row>
+      <Row justify='space-around' wrap>
+        <Button w='100%' maxW='100px' inverted color='orange'>Orange</Button>
+        <Button w='100%' maxW='100px' inverted color='orange.light'>Light</Button>
+        <Button w='100%' maxW='100px' inverted color='orange.dark'>Dark</Button>
+      </Row>
+      <Row justify='space-around' wrap>
+        <Button w='100%' maxW='100px' inverted color='yellow'>Yellow</Button>
+        <Button w='100%' maxW='100px' inverted color='yellow.light'>Light</Button>
+        <Button w='100%' maxW='100px' inverted color='yellow.dark'>Dark</Button>
+      </Row>
+      <Row justify='space-around' wrap>
+        <Button w='100%' maxW='100px' inverted color='green'>Green</Button>
+        <Button w='100%' maxW='100px' inverted color='green.light'>Light</Button>
+        <Button w='100%' maxW='100px' inverted color='green.dark'>Dark</Button>
+      </Row>
+      <Row justify='space-around' wrap>
+        <Button w='100%' maxW='100px' inverted color='blue'>Blue</Button>
+        <Button w='100%' maxW='100px' inverted color='blue.light'>Light</Button>
+        <Button w='100%' maxW='100px' inverted color='blue.dark'>Dark</Button>
+      </Row>
+      <Row justify='space-around' wrap>
+        <Button w='100%' maxW='100px' inverted color='purple'>Purple</Button>
+        <Button w='100%' maxW='100px' inverted color='purple.light'>Light</Button>
+        <Button w='100%' maxW='100px' inverted color='purple.dark'>Dark</Button>
+      </Row>
+      <Row justify='space-around' wrap>
+        <Button w='100%' maxW='100px' inverted color='pink'>Pink</Button>
+        <Button w='100%' maxW='100px' inverted color='pink.light'>Light</Button>
+        <Button w='100%' maxW='100px' inverted color='pink.dark'>Dark</Button>
+      </Row>
+      <Row justify='space-around' wrap>
+        <Button w='100%' maxW='100px' inverted color='grey'>Grey</Button>
+        <Button w='100%' maxW='100px' inverted color='grey.light'>Light</Button>
+        <Button w='100%' maxW='100px' inverted color='grey.dark'>Dark</Button>
+      </Row>
+      <Row justify='space-around' wrap>
+        <Button w='100%' maxW='100px' inverted color='teal'>Teal</Button>
+        <Button w='100%' maxW='100px' inverted color='teal.light'>Light</Button>
+        <Button w='100%' maxW='100px' inverted color='teal.dark'>Dark</Button>
+      </Row>
+      <Row justify='center'>
+        <strong>More Colors</strong>
+      </Row>
+      <Row justify='space-around' wrap>
+        <Button w='100%' maxW='100px' inverted color='brown'>Brown</Button>
+        <Button w='100%' maxW='100px' inverted color='violet'>Violet</Button>
+        <Button w='100%' maxW='100px' inverted color='olive'>Olive</Button>
+        <Button w='100%' maxW='100px' inverted color='white'>White</Button>
+        <Button w='100%' maxW='100px' inverted color='black'>Black</Button>
+      </Row>
+      <Row justify='center'>
+        <strong>Custom Color</strong>
+      </Row>
+      <Row justify='center'>
+        <Button inverted color='#775533'>Any Colour You Like</Button>
+      </Row>
+    </Col>
+  </Story>
+</Preview>
+
+## Props
+<Props of={Button} />

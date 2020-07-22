@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "target": "ES2015",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "declaration": true,
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "jsx": "react",
+    "outDir": "dist/es",
+    "baseUrl": ".",
+    "paths": {
+      "@side-of-the/rp": ["./src/rp"],
+      "universe-ui": ["./src"],
+      "samples/app-patients": ["./src/samples/app-patients"],
+      "storybook": ["./stories"]
+    },
+    "plugins": [{ 
+      "transform": "typescript-transform-paths" 
+    }]
+  },
+  "include": ["."],
+  "exclude": ["node_modules"]
+}

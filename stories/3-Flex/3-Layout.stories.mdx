@@ -1,0 +1,27 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { Row, Col, Nav, Root } from 'universe-ui'
+
+<Meta title="Flex/Layout" />
+
+# Samples
+
+<Preview>
+  <Story name="Layout" h='600px'>
+    <Root dir='row' h='100%' w='100%' border='1'>
+      <Nav>
+        <Nav.Icon circle icon="home" />
+      </Nav>
+      <Col fill>
+        <Row minH="50px" border="b4" align="center" justify="center">
+          Header
+        </Row>
+        <Row fill align="center" justify="center">
+          Content
+        </Row>
+        <Row minH="50px" border="t4" align="center" justify="center">
+          Footer
+        </Row>
+      </Col>
+    </Root>
+  </Story>
+</Preview>

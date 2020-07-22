@@ -1,0 +1,23 @@
+import { Meta, Story, Preview, Props, Source, Mdx } from '@storybook/addon-docs/blocks'
+import { Input, Button, Row, Col } from 'universe-ui'
+import moment from 'moment'
+
+<Meta title="Input/Select" component={Input.Text} />
+
+# Input Select
+
+<br /><br />
+
+<Preview className='preview-select'>
+  <Story name="Basic" h='350px' >
+    <Col border='1' padding='8'>
+      <Input.Select label='Basic' items={['Javascript', 'Kotlin', 'Csharp', 'Swift', 'Java', 'Rust', 'Go', 'Elixir', 'Ruby', 'Python']} />
+    </Col>
+  </Story>
+</Preview>
+
+<br /><br />
+
+
+## Props
+<Props of={Input.Select} />

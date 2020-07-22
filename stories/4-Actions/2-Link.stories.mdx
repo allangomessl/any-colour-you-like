@@ -1,0 +1,48 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+
+import { Link, Avatar, Row, Col } from 'universe-ui'
+
+<Meta title="Actions/Link" component={Link} />
+
+# Link
+
+## As Text
+
+- `to` will use your Router to navigation
+- `href` will use a `a` normal
+
+<Preview>
+  <Story name="Text">
+    <Row justify='space-around' wrap>
+      <Link>Without Action</Link>
+      <Link to='#'>With "to"</Link>
+      <Link href='#'>With "href"</Link>
+      <Link onClick={window.alert}>With "onClick"</Link>
+    </Row>
+  </Story>
+</Preview>
+
+
+
+## As Container
+
+if you pass `dir` in props, Link will be a container
+
+<Preview>
+  <Story name="Container">
+    <Link dir='row' gap={4} to='#' padding='1' margin='1' border='1' corner='4'>
+      <Avatar />
+      <Col justify='space-around'>
+        <strong>Title</strong>
+        <span>Sub Title</span>
+      </Col>
+    </Link>
+    <Link dir='row' gap={4} to='#' padding='1' margin='1' border='1' corner='4'>
+      <Avatar />
+      <Col justify='space-around'>
+        <strong>Title</strong>
+        <span>Sub Title</span>
+      </Col>
+    </Link>
+  </Story>
+</Preview>

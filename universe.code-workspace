@@ -1,0 +1,33 @@
+{
+	"folders": [
+		{
+			"name": "✨ SOURCE",
+			"path": "./src"
+    },
+    {
+			"name": "📦 SAMPLES",
+			"path": "./samples"
+    },
+    {
+			"name": "📦 STORYBOOK",
+			"path": "./stories"
+    },
+    {
+			"name": "💾 ROOT",
+			"path": "."
+    }
+	],
+  "settings": {
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "files.exclude": {
+      "**/.git": true,
+      "**/.svn": true,
+      "**/.hg": true,
+      "**/CVS": true,
+      "**/.DS_Store": true,
+      "**/dist": true,
+      "**/node_modules": true
+    },
+    "explorerExclude.backup": null
+  }
+}

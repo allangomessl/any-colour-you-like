@@ -1,0 +1,37 @@
+import { Meta, Story, Preview, Props, Source, Mdx } from '@storybook/addon-docs/blocks'
+import { Input, Button, Row, Col } from 'universe-ui'
+import moment from 'moment'
+
+<Meta title="Input/Date" component={Input.Date} />
+
+# Date
+
+<br /><br />
+
+<Preview>
+  <Story name="Date and Time">
+    <Input.Date label='Date' />
+  </Story>
+</Preview>
+
+on date field, we have some shortcuts for best user experience e productivity, for example:
+
+#### Increment / Decrement
+> - **20 days**: digit *20* and press *UP* once
+> - **20 months**: digit *20* and press *UP* twice
+> - **20 years**: digit *20* and press *UP* three times
+###### For decrement use *DOWN* key
+
+#### Last / Next
+> - **Last 15**: digit *15* and press *LEFT* once
+> - **Next 15**: digit *15* and press *RIGHT* once
+
+#### Partial
+> - **1_/\_\_/\_\_\_\_**: digit *1* and press *TAB*, then, it will complete to 01 of current month
+> - **01/3\_/\_\_\_\_**: digit *013* and press *TAB*, it will complete to 01 of march of current year
+
+
+<br /><br /><br /><br />
+
+## Props
+<Props of={Input.Date} />

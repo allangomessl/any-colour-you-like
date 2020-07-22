@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "target": "ES2015",
+    "lib": ["DOM","DOM.Iterable","ESNext"],
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "module": "ESNext",
+    "outDir": "dist",
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react",
+    "plugins": [
+      { "transform": "typescript-transform-paths" }
+    ]
+  },
+  "include": [
+    "./",
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

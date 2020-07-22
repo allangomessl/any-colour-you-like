@@ -1,0 +1,28 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { Root, Box, Col, Row } from 'universe-ui'
+import { useFlexProps } from '../../samples/hooks'
+
+<Meta title="Flex/Row" />
+
+# Row
+
+<Preview>
+  <Story name="Row" h='600px' dir='row' gap={2}>
+    {() => {
+      const { FlexProps, align, gap, justify } = useFlexProps()
+      return (
+        <>
+          <Row border="4" minH="150px" justify={justify} gap={gap} align={align} bg='black'>
+            <Box minH="50px" minW="50px" border='2' bg="red" />
+            <Box minH="50px" minW="50px" border='2' bg="orange" />
+            <Box minH="50px" minW="50px" border='2' bg="yellow" />
+            <Box minH="50px" minW="50px" border='2' bg="green" />
+            <Box minH="50px" minW="50px" border='2' bg="blue" />
+            <Box minH="50px" minW="50px" border='2' bg="purple" />
+          </Row>
+          <FlexProps />
+        </>
+      )
+    }}
+  </Story>
+</Preview>

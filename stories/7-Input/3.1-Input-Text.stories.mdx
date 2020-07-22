@@ -1,0 +1,29 @@
+import { useState } from 'react'
+import { Meta, Story, Preview, Props, Source, Mdx } from '@storybook/addon-docs/blocks'
+import { Input, Button, Row, Col } from 'universe-ui'
+import moment from 'moment'
+
+<Meta title="Input/Text" component={Input.Text} />
+
+# Input Text
+
+<br /><br />
+
+<Preview>
+  <Story name="Text">
+    {() => {
+      const [value, setValue] = useState('allangomessl')
+      return (
+        <>
+          <Input.Text label='Text' value={value} onChange={(ev) => setValue(ev.target.value)} />
+          {value}
+        </>
+      )
+    }}
+  </Story>
+</Preview>
+
+<br /><br />
+
+## Props
+<Props of={Input.Text} />

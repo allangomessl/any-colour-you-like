@@ -1,0 +1,68 @@
+{
+  "name": "universe-ui",
+  "version": "1.0.0-alpha.70",
+  "description": "",
+  "main": "dist/cjs/index.js",
+  "module": "dist/es/index.js",
+  "types": "dist/types",
+  "homepage": "https://allangomessl.github.io/universe-ui",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/allangomessl/universe-ui.git"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "tag": "latest"
+  },
+  "scripts": {
+    "start": "start-storybook -p 6006 --docs --no-dll",
+    "docs": "build-storybook -o ./docs --docs --no-dll",
+    "build:es": "tsc -m es2015 --outDir dist/es -p tsconfig.build.json",
+    "build:cjs": "tsc -m CommonJS --outDir dist/cjs -p tsconfig.build.json",
+    "build": "npm run build:es && npm run build:cjs",
+    "prepack": "npm run build",
+    "postpack": "rm -rf dist"
+  },
+  "keywords": [],
+  "author": "Allan Gomes <allanmaiagomes@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "@fortawesome/react-fontawesome": "^0.1.11",
+    "fuse.js": "^6.4.0",
+    "imask": "^6.0.5",
+    "styled-icons": "^10.11.0",
+    "unform": "^1.2.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.3",
+    "@fortawesome/fontawesome-svg-core": "^1.2.29",
+    "@fortawesome/free-solid-svg-icons": "^5.13.1",
+    "@mediatr/crud-api": "0.0.24",
+    "@storybook/addon-controls": "^6.0.0-rc.13",
+    "@storybook/addon-docs": "^6.0.0-rc.13",
+    "@storybook/addons": "^6.0.0-rc.13",
+    "@storybook/react": "^6.0.0-rc.13",
+    "@types/react": "16.9.41",
+    "@types/styled-components": "5.1.0",
+    "babel-loader": "^8.1.0",
+    "faker": "^4.1.0",
+    "history": "^5.0.0",
+    "html-loader": "^1.1.0",
+    "lodash": "^4.17.19",
+    "markdown-loader": "^5.1.0",
+    "moment": "^2.27.0",
+    "react": "^16.13.1",
+    "react-docgen-typescript-loader": "^3.7.2",
+    "react-dom": "^16.13.1",
+    "react-hook-form": "6.0.1",
+    "react-markdown": "^4.3.1",
+    "react-router": "next",
+    "react-router-dom": "next",
+    "styled-components": "^5.1.1",
+    "ts-loader": "^7.0.5",
+    "typescript": "^3.9.6",
+    "typescript-transform-paths": "^1.1.14"
+  }
+}
