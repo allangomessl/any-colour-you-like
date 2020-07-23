@@ -2,10 +2,13 @@ import { useRef, useEffect } from 'react'
 import { Form } from '../Form/Form'
 import { Field } from '../Form/Field'
 import * as lib from 'unform'
+import { Html } from '../styles'
+
+Form.register(lib.Form)
 
 Form.hook = (props) => {
   return {
-    component: !props.path && lib.Form,
+    as: props.path ? Html.Form : Form.as,
     props,
     context: {
       path: props.path

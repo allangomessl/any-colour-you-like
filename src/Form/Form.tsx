@@ -1,4 +1,6 @@
 import React, { createContext, useContext, useImperativeHandle, useState, useEffect, useCallback } from 'react'
+import { mixins, Html } from '../styles'
+import styled from 'styled-components'
 
 const FormContext = createContext({})
 
@@ -8,17 +10,23 @@ export function useForm() {
 
 export declare namespace Form {
 
-  export type Props = {
-    loading: boolean
-    onSubmit: any
-    onSuccess,
-    onError
-  }
+  export type Props = mixins.container & {
+    [key: string]: any
+  } & {
+    loading?: boolean
+    onSubmit?: any
+    onSuccess?: any,
+    onError?: any
+  } & React.PropsWithRef<{
+    ref?: React.Ref<HTMLFormElement>
+  }>
 
 }
 
 export type Form = React.FC<Form.Props> & {
+  as?: React.FC<any>
   hook?: (props: any) => any
+  register?: (Cmp: React.FC<any>) => void
 }
 
 const waitform = new Promise(resolve => {
@@ -27,14 +35,11 @@ const waitform = new Promise(resolve => {
   }, 100);
 })
 
-export const Form: Form = React.forwardRef((hookProps, ref) => {
+
+export const Form: Form = React.forwardRef((props, ref) => {
   if (Form.hook === null) {
     throw waitform
   }
-
-  const hook = Form.hook(hookProps)
-  const { props } = hook
-  useImperativeHandle(ref, () => hook.ref)
 
   const handleSubmit = useCallback(async (data: any, ...args: any[]) => {
     try {
@@ -45,22 +50,30 @@ export const Form: Form = React.forwardRef((hookProps, ref) => {
     } 
   }, [])
 
-  const formElement = React.createElement(hook.component || 'form', {
-    ...hook.props,
-    onSubmit: handleSubmit,
-    noValidate: true,
-  }, props.children)
+  const form = Form.hook({
+    ...props,
+    onSubmit: handleSubmit
+  })
+  useImperativeHandle(ref, () => form.ref)
 
   return (
-    <FormContext.Provider value={hook.context}>
-      {formElement}
+    <FormContext.Provider value={form.context}>
+      {React.createElement(form.as || Form.as, {
+        ...form.props,
+        noValidate: true
+      }, props.children)}
     </FormContext.Provider>
   )
 })
 
+Form.as = Html.Form
 Form.hook = null
 
-// (props) => {
-//   console.error('no form control registered. add react-hook-form to your dependecies')
-//   return {}
-// }
+Form.register = (Cmp: React.FC<any>, hook: (props: any) => any = null) => {
+  if (Cmp) {
+    Form.as = styled(Cmp)`
+      ${mixins.container}
+    `
+  }
+  Form.hook = hook
+}

@@ -2,8 +2,8 @@ import { Form, useForm } from '../Form/Form'
 import { Field } from '../Form/Field'
 import * as lib from 'react-hook-form'
 
-Form.hook = (props) => {
-  const { path, initialData, rest } = props
+Form.hook = ({ onSubmit, ...props }) => {
+  const { path, initialData, ...rest } = props
 
   const parent = useForm() as any
   
@@ -12,7 +12,7 @@ Form.hook = (props) => {
     ...rest
   })
 
-  const submit = handleSubmit(props.onSubmit)
+  const submit = handleSubmit(onSubmit)
 
   if (path) {
     register = parent.register as any
@@ -24,7 +24,7 @@ Form.hook = (props) => {
       ...rest
     },
     context: {
-      path: path,
+      path,
       register
     },
     ref: {

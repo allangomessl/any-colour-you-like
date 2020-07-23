@@ -4,13 +4,16 @@ import styled from 'styled-components'
 import { ScreenHeader } from './Screen.Header'
 import { useSlot } from '../rp'
 import { Button } from '../Action'
+import { Form } from '../Form'
 
 export declare namespace Screen {
   export type Props = Col.Props & {
     title?: string
   }
 }
-export type Screen = React.FC<Screen.Props>
+export type Screen = React.FC<Screen.Props> & {
+  Header?: ScreenHeader
+}
 
 export const Screen: Screen = React.forwardRef((props, ref) => {
 

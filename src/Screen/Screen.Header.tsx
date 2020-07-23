@@ -1,7 +1,6 @@
 import React from 'react'
 import { Row } from '../Flex'
 import { Box } from '../Flex/Box'
-import { useSlot } from '../rp/lib'
 
 export declare namespace ScreenHeader {
   export type Props = Box.Props & {

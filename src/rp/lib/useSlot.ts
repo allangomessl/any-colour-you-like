@@ -8,6 +8,8 @@ export function useSlot(slot: string, children: any, defaultRender: FC<any> | st
     return (p?.type?.slot || p?.props?.slot) === slot
   }) as any
 
+  normChildren.splice(normChildren.indexOf(Ext), 1)
+
   Object.assign(hookedProps.current, Ext?.props || {})
   Object.assign(hookedProps.current, Ext?.ref ? { ref: Ext.ref } : {})  
 

@@ -57,23 +57,4 @@ Link.initialize(RouterLink);
   
 ```
 
-<br /><br />
-
-### Icons
-
-This Library uses [FortAwesome](https://github.com/FortAwesome/react-fontawesome) 
-to render icons and you need to specify which you want in you `index`, `App` or `whatever` file
-
-
-```tsx
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { faPlus } from '@fortawesome/free-solid-svg-icons'
-
-library.add(faPlus)
-
-// or if you want all free solid svg icons
-
-import { fas } from '@fortawesome/free-solid-svg-icons'
-library.add(fas)
-
-```
+[See more here](https://allangomessl.github.io/universe-ui)

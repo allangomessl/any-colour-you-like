@@ -30,7 +30,6 @@ export const Input = styled.input<Input>`
   ${element}
 `
 
-
 export type Button = element & React.ButtonHTMLAttributes<HTMLButtonElement>
 export const Button = styled.button<Button>`
   ${clear};
@@ -43,12 +42,15 @@ export const A = styled.a<A>`
   ${container}
 `
 
-
 export type Span = React.PropsWithRef<element> & React.HTMLAttributes<HTMLSpanElement>
 export const Span = styled.span<Span>`
   ${element}
 `
 
+export type Form = React.PropsWithRef<element> & React.HTMLAttributes<HTMLFormElement>
+export const Form = styled.form`
+  ${container}
+`
 
 
 // --theme-color: ${p => p.theme.pallete[p.color] || p.color}
@@ -142,4 +144,5 @@ export const Span = styled.span<Span>`
 //   font-size: 1.2em;
 //   margin: -0.0834em;
 // }
+
 
