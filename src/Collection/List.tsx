@@ -86,11 +86,11 @@ export const List: List = React.forwardRef((props, ref) => {
     }
   }, [props.more])
 
-  search.onChange = useCallback((ev: KeyboardEvent<HTMLInputElement>) => {
-    if (query !== ev.currentTarget.value) {
-      setQuery(ev.currentTarget.value)
+  search.onChange = useCallback((value: string, ev: KeyboardEvent<HTMLInputElement>) => {
+    if (query !== value) {
+      setQuery(value)
     }
-    SearchSlot.props?.onChange?.call(null, ev)
+    SearchSlot.props?.onChange?.call(null, value, ev)
   }, [query, setQuery])
 
   search.onKeyDown = useCallback((ev: KeyboardEvent<HTMLInputElement>) => {

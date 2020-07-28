@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from 'react'
+import React, { useLayoutEffect, useCallback, useRef, useImperativeHandle } from 'react'
 import styled from 'styled-components'
 import { Col } from '../Flex'
 import { mixins, Html, styles } from '../styles'
@@ -18,6 +18,7 @@ export declare namespace InputText {
     onEnter?: any,
     value?: any,
     onChange?: any
+    state?: any 
   }
 
 }
@@ -25,22 +26,28 @@ export declare namespace InputText {
 export type InputText = React.FC<InputText.Props>
 
 export const InputText: InputText = React.forwardRef((props, ref) => {
-  const { label, wRef, name } = props
+  const { label, wRef, name, onChange } = props
+
+  const inputEl = useRef<HTMLInputElement>()
+  useImperativeHandle(ref, () => inputEl.current)
 
   const InputSlot = useSlot('input', props.children, Html.Input)
 
   useLayoutEffect(() => {
-    const input = { value: props.value }
-    props.onChange?.call(null, { currentTarget: input, target: input  } )
+    
   }, [props.value])
+
+  const handleChange = useCallback((ev: React.ChangeEvent<HTMLInputElement>) => {
+    onChange?.call(null, ev.currentTarget.value, ev)
+  }, [onChange])
 
   const { wrapper, input } = useProps(props, {
     wrapper: mixins.element.props,
-    input: ['onKeyDown', 'onKeyUp', 'onBlur', 'onFocus', 'onEnter', 'name', 'value', 'onChange']
+    input: ['onKeyDown', 'onKeyUp', 'onBlur', 'onFocus', 'onEnter', 'name', 'value']
   })
   return (
     <Wrapper ref={wRef} role={name ? 'field-text' : 'input-text' } {...wrapper}>
-      <InputSlot required ref={ref} autoComplete='off' {...input} />
+      <InputSlot required ref={inputEl} autoComplete='off' {...input} onChange={handleChange} />
       {label && <Label>{label}</Label>}
       <Message />
     </Wrapper>
