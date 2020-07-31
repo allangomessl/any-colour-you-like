@@ -159,7 +159,7 @@ export const List: List = React.forwardRef((props, ref) => {
         ItemSlot?.props?.onClick?.call(null, item, index, ev)
         props.dropdown && setShowList(false)
       }
-      return React.createElement(ItemSlot, {
+      return React.createElement(ItemSlot.Render, {
         data: item,
         index,
         onClick: handleClick,
@@ -171,7 +171,7 @@ export const List: List = React.forwardRef((props, ref) => {
 
   return (
     <Wrapper {...wrapper}>
-      <SearchSlot ref={props.searchRef} {...search} />
+      <SearchSlot.Render ref={props.searchRef} {...search} />
       {showList && (<UL ref={ulEl} absolute scrollable {...ul}>
         {items}
       </UL>)}

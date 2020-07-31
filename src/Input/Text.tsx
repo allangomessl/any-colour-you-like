@@ -47,7 +47,7 @@ export const InputText: InputText = React.forwardRef((props, ref) => {
   })
   return (
     <Wrapper ref={wRef} role={name ? 'field-text' : 'input-text' } {...wrapper}>
-      <InputSlot required ref={inputEl} autoComplete='off' {...input} onChange={handleChange} />
+      <InputSlot.Render required ref={inputEl} autoComplete='off' {...input} onChange={handleChange} />
       {label && <Label>{label}</Label>}
       <Message />
     </Wrapper>

@@ -22,7 +22,7 @@ export const Screen: Screen = React.forwardRef((props, ref) => {
   return (
     <Wrapper border='2' relative {...props} ref={ref}>
       <Close size='3' to='..' circle Icon={IconClose} color='red'>x</Close>
-      <HeaderSlot title={props.title} />
+      <HeaderSlot.Render title={props.title} />
       <Row fill>
         {props.children}
       </Row>

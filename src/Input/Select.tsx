@@ -1,6 +1,7 @@
 import React, { useRef, KeyboardEvent, useImperativeHandle, useLayoutEffect } from 'react'
 import { useCallback } from 'react'
 import { List } from '../Collection'
+import { Item } from '../Item'
 import styled from 'styled-components'
 import { useSlot, Slot, useProps } from '../rp'
 import { InputText } from './Text'
@@ -20,6 +21,7 @@ export const InputSelect: InputSelect = React.forwardRef((props, ref) => {
   useImperativeHandle(ref, () => inputEl.current)
 
   const InputSlot = useSlot('input', props.children, 'input')
+  const ItemSlot = useSlot('item', props.children, Item.Text)
 
   useLayoutEffect(() => {
     if (inputEl?.current?.value) {
@@ -48,10 +50,10 @@ export const InputSelect: InputSelect = React.forwardRef((props, ref) => {
     <>
       <WrappedList {...list} searchRef={searchEl} dropdown fill={false}>
         <Slot slot='search' {...search} onKeyDown={handleInputKeyUp} />
-        <Slot slot='item' onClick={handleItemSelect} />
+        <ItemSlot.Forward onClick={handleItemSelect} />
         {props.children}
       </WrappedList>
-      <InputSlot hidden ref={inputEl} name={props.name} />
+      <InputSlot.Render hidden ref={inputEl} name={props.name} />
     </>
   )
 })
