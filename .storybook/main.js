@@ -1,6 +1,4 @@
-// import type { StorybookConfig } from '@storybook/core/types';
 const path = require('path')
-// const theme = require('./theme')
 
 module.exports = {
   stories: ['../stories/**/*stories.@(mdx)'],

@@ -3,13 +3,8 @@ import React from 'react'
 import { Root, Row } from 'universe-ui'
 import theme from './theme'
 import { addons } from '@storybook/addons'
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { faHome } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faHome)
-
-addons.setConfig({
-})
+addons.setConfig({})
 
 export const parameters = {
   theme

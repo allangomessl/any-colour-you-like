@@ -34,7 +34,7 @@ export const InputText: InputText = React.forwardRef((props, ref) => {
   const InputSlot = useSlot('input', props.children, Html.Input)
 
   useLayoutEffect(() => {
-    
+    inputEl.current.value = props.value === undefined ? '' : props.value
   }, [props.value])
 
   const handleChange = useCallback((ev: React.ChangeEvent<HTMLInputElement>) => {

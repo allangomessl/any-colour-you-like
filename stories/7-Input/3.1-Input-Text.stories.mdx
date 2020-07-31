@@ -9,17 +9,14 @@ import moment from 'moment'
 
 <br /><br />
 
-
-### useState integration
+## useState integration (React Hooks)
 
 <Preview>
   <Story name="Text">
     {() => {
       const [value, setValue] = useState('allangomessl')
       return (
-        <>
-          <Input.Text label='Text' value={value} onChange={setValue} />
-        </>
+        <Input.Text label='Text' value={value} onChange={setValue} />
       )
     }}
   </Story>
