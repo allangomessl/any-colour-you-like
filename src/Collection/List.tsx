@@ -12,15 +12,19 @@ import { useDebounceState } from '../rp'
 export declare namespace List {
 
   export type Props<T=any> = mixins.element & {
-    items?: T[], 
+    tabIndex?: number
+    items?: T[],
     search?: (query: string) => any | string[],
     more?: () => void,
+    onListDisplayed?: any
+    onKeyDown?: any
     dropdown?: boolean
     fill?: boolean
     searchRef?: any
     children?: any
     fieldKey?: keyof T
     searchFields?: Array<keyof T>
+    ref?: React.Ref<HTMLDivElement>
   }
 
 }
@@ -35,7 +39,7 @@ export const List: List = React.forwardRef((props, ref) => {
   const [showList, setShowList] = useState(!props.dropdown)
 
   const { wrapper, search, ul } = useProps(props, {
-    wrapper: [...mixins.element.props, 'dropdown', 'role'],
+    wrapper: [...mixins.element.props, 'dropdown', 'role', 'tabIndex', 'onKeyDown'],
     search: ['dropdown'],
     ul: ['dropdown']
   })
@@ -78,6 +82,14 @@ export const List: List = React.forwardRef((props, ref) => {
   const SearchSlot = useSlot('search', props.children, InputText)
   const ItemSlot = useSlot('item', props.children, ItemText)
 
+  const listShow = useCallback((value: boolean) => {
+    if (!props.dropdown) {
+      return
+    }
+    setShowList(value)
+    props.onListDisplayed?.call(null, value)
+  }, [props.dropdown, props.onListDisplayed, setShowList])
+
   ul.onScroll = useCallback((ev) => {
     const el = ev.target
     const finish = el.scrollHeight - el.clientHeight
@@ -97,7 +109,7 @@ export const List: List = React.forwardRef((props, ref) => {
     const code = ev.nativeEvent.code
 
     if (/Tab/.test(code) || ev.ctrlKey || ev.metaKey) {
-      props.dropdown && setShowList(false)
+      listShow(false)
       return
     }
 
@@ -129,11 +141,11 @@ export const List: List = React.forwardRef((props, ref) => {
       ev.stopPropagation()
     }
 
-    if (props.dropdown && /Key|Arrow|Page|Backspace/.test(code)) {
-      setShowList(true)
+    if (/Key|Arrow|Page|Backspace/.test(code)) {
+      listShow(true)
     }
 
-    SearchSlot?.props?.onKeyUp?.call(null, ev)
+    SearchSlot?.props?.onKeyDown?.call(null, ev)
 
     if (/ArrowUp|ArrowDown/.test(code)) {
       ev.preventDefault()
@@ -144,20 +156,20 @@ export const List: List = React.forwardRef((props, ref) => {
 
   search.onBlur = useCallback(() => {
     setTimeout(() => {
-      props.dropdown && setShowList(false)
+      listShow(false)
     }, 150)
-  }, [setShowList])
+  }, [listShow])
 
   search.onFocus = useCallback(() => {
-    props.dropdown && setShowList(true)
-  }, [setShowList])
+    listShow(true)
+  }, [listShow])
 
   const items = useMemo(() => {
     return stateData.map((item: any, index: number) => {
       const handleClick = (ev: any) => {
         setFocused(index)
         ItemSlot?.props?.onClick?.call(null, item, index, ev)
-        props.dropdown && setShowList(false)
+        listShow(false)
       }
       return React.createElement(ItemSlot.Render, {
         data: item,
@@ -167,7 +179,7 @@ export const List: List = React.forwardRef((props, ref) => {
         focused: focused == index,
       })
     })
-  }, [stateData, query, ItemSlot, focused, setFocused, setShowList])
+  }, [stateData, query, ItemSlot, focused, setFocused, listShow])
 
   return (
     <Wrapper {...wrapper}>

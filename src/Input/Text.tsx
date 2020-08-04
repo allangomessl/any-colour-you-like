@@ -18,7 +18,8 @@ export declare namespace InputText {
     onEnter?: any,
     value?: any,
     onChange?: any
-    state?: any 
+    state?: any,
+    style?: any
   }
 
 }
@@ -42,7 +43,7 @@ export const InputText: InputText = React.forwardRef((props, ref) => {
   }, [onChange])
 
   const { wrapper, input } = useProps(props, {
-    wrapper: mixins.element.props,
+    wrapper: [...mixins.element.props, 'style'],
     input: ['onKeyDown', 'onKeyUp', 'onBlur', 'onFocus', 'onEnter', 'name', 'value']
   })
   return (

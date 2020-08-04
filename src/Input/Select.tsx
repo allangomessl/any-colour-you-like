@@ -1,4 +1,4 @@
-import React, { useRef, KeyboardEvent, useImperativeHandle, useLayoutEffect } from 'react'
+import React, { useRef, KeyboardEvent, useImperativeHandle, useLayoutEffect, useState } from 'react'
 import { useCallback } from 'react'
 import { List } from '../Collection'
 import { Item } from '../Item'
@@ -7,8 +7,10 @@ import { useSlot, Slot, useProps } from '../rp'
 import { InputText } from './Text'
 
 export declare namespace InputSelect {
-  export type Props = InputText.Props & {
-    items: any[]
+  export type Props<T=any> = InputText.Props & {
+    items: T[]
+    search: List.Props<T>['search']
+    toText?: (item: T) => T
   }
 }
 
@@ -16,8 +18,13 @@ export type InputSelect = React.FC<InputSelect.Props>
 
 export const InputSelect: InputSelect = React.forwardRef((props, ref) => {
 
+  const [listDisplay, setListDisplay] = useState(false)
+  const [value, setValue] = useState()
+
+  const listEl = useRef<HTMLDivElement>()
   const inputEl = useRef<HTMLInputElement>()
   const searchEl = useRef<HTMLInputElement>()
+  const selectedItemEl = useRef<HTMLDivElement>()
   useImperativeHandle(ref, () => inputEl.current)
 
   const InputSlot = useSlot('input', props.children, 'input')
@@ -25,31 +32,53 @@ export const InputSelect: InputSelect = React.forwardRef((props, ref) => {
 
   useLayoutEffect(() => {
     if (inputEl?.current?.value) {
-      searchEl.current.value = inputEl?.current?.value
+      searchEl.current.value = props.toText(inputEl?.current?.value) || ''
+    } else {
+      searchEl.current.value = ''
     }
   }, [inputEl?.current?.value])
 
   const handleItemSelect = useCallback((item) => {
     inputEl.current.value = item
-    searchEl.current.value = item
+    setValue(item)
   }, [])
 
-  const handleInputKeyUp = useCallback((ev: KeyboardEvent<HTMLInputElement>) => {
-    if (ev.nativeEvent.code === 'Backspace') {
+  const handleInputKeyDown = useCallback((ev: KeyboardEvent<HTMLInputElement>) => {
+    if (/Backspace|Delete/.test(ev.nativeEvent.code)) {
       inputEl.current.value = null
-      searchEl.current.value = ''
+      setValue(null)
     }
+    if (/Escape/.test(ev.nativeEvent.code)) {
+      searchEl.current.blur()
+    }
+
   }, [])
+
+  useLayoutEffect(() => {
+    if (listDisplay) {
+      searchEl?.current?.focus()
+    }
+  }, [listDisplay])
 
   const { list, search } = useProps(props, {
-    list: ['items', 'role', 'fill'],
+    list: ['items', 'role', 'fill', 'search'],
     search: ['label']
   })
 
+  const As = useCallback((props) => {
+    return (
+      <>
+        {props.template && <label>{props.label}</label>}
+        {props.template && <ItemSlot.Render ref={selectedItemEl} href='#' data={props.value} {...props} />}
+        <InputText ref={searchEl} w={0} style={{ opacity: props.template ? 0 : 1 }} absolute={props.template} {...props} />
+      </>
+    )
+  }, [])
+
   return (
     <>
-      <WrappedList {...list} searchRef={searchEl} dropdown fill={false}>
-        <Slot slot='search' {...search} onKeyDown={handleInputKeyUp} />
+      <WrappedList {...list} ref={listEl} dropdown fill={false} onListDisplayed={setListDisplay} onKeyDown={handleInputKeyDown}>
+        <Slot slot='search' as={As} {...search} data={value} template={value && !listDisplay} />
         <ItemSlot.Forward onClick={handleItemSelect} />
         {props.children}
       </WrappedList>
@@ -59,7 +88,8 @@ export const InputSelect: InputSelect = React.forwardRef((props, ref) => {
 })
 
 InputSelect.defaultProps = {
-  role: 'input-select'
+  role: 'input-select',
+  toText: (item: any) => item
 }
 
 const WrappedList = styled(List)`

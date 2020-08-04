@@ -1,6 +1,7 @@
 import { Meta, Story, Preview, Props, Source, Mdx } from '@storybook/addon-docs/blocks'
 import { Input, Button, Row, Col, Item } from 'universe-ui'
 import { LanguageItem } from '../../samples/components'
+import { languages } from '../../samples/data'
 import moment from 'moment'
 
 <Meta title="Input/Select" component={Input.Text} />
@@ -26,7 +27,7 @@ import moment from 'moment'
 <Preview className='preview-select'>
   <Story name="Custom Template" h='350px' >
     <Col border='1' padding='8'>
-      <Input.Select label='Basic' items={['Javascript', 'Kotlin', 'Csharp', 'Swift', 'Java', 'Rust', 'Go', 'Elixir', 'Ruby', 'Python']}>
+      <Input.Select label='Languages' items={languages} search={['name']} toText={(data) => data.name}>
         <Slot slot='item' as={LanguageItem} />
       </Input.Select>
     </Col>
