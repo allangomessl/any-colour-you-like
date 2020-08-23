@@ -1,5 +1,5 @@
 import { addParameters } from '@storybook/react'
-import React from 'react'
+import * as React from 'react'
 import { Root, Row } from 'universe-ui'
 import theme from './theme'
 import { addons } from '@storybook/addons'

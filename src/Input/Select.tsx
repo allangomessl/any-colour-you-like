@@ -1,4 +1,4 @@
-import React, { useRef, KeyboardEvent, useImperativeHandle, useLayoutEffect, useState } from 'react'
+import * as React from 'react'
 import { useCallback } from 'react'
 import { List } from '../Collection'
 import { Item } from '../Item'
@@ -9,7 +9,7 @@ import { InputText } from './Text'
 export declare namespace InputSelect {
   export type Props<T=any> = InputText.Props & {
     items: T[]
-    search: List.Props<T>['search']
+    search?: List.Props<T>['search']
     toText?: (item: T) => T
   }
 }
@@ -18,19 +18,19 @@ export type InputSelect = React.FC<InputSelect.Props>
 
 export const InputSelect: InputSelect = React.forwardRef((props, ref) => {
 
-  const [listDisplay, setListDisplay] = useState(false)
-  const [value, setValue] = useState()
+  const [listDisplay, setListDisplay] = React.useState(false)
+  const [value, setValue] = React.useState()
 
-  const listEl = useRef<HTMLDivElement>()
-  const inputEl = useRef<HTMLInputElement>()
-  const searchEl = useRef<HTMLInputElement>()
-  const selectedItemEl = useRef<HTMLDivElement>()
-  useImperativeHandle(ref, () => inputEl.current)
+  const listEl = React.useRef<HTMLDivElement>()
+  const inputEl = React.useRef<HTMLInputElement>()
+  const searchEl = React.useRef<HTMLInputElement>()
+  const selectedItemEl = React.useRef<HTMLDivElement>()
+  React.useImperativeHandle(ref, () => inputEl.current)
 
   const InputSlot = useSlot('input', props.children, 'input')
   const ItemSlot = useSlot('item', props.children, Item.Text)
 
-  useLayoutEffect(() => {
+  React.useLayoutEffect(() => {
     if (inputEl?.current?.value) {
       searchEl.current.value = props.toText(inputEl?.current?.value) || ''
     } else {
@@ -43,7 +43,7 @@ export const InputSelect: InputSelect = React.forwardRef((props, ref) => {
     setValue(item)
   }, [])
 
-  const handleInputKeyDown = useCallback((ev: KeyboardEvent<HTMLInputElement>) => {
+  const handleInputKeyDown = useCallback((ev: React.KeyboardEvent<HTMLInputElement>) => {
     if (/Backspace|Delete/.test(ev.nativeEvent.code)) {
       inputEl.current.value = null
       setValue(null)
@@ -54,7 +54,7 @@ export const InputSelect: InputSelect = React.forwardRef((props, ref) => {
 
   }, [])
 
-  useLayoutEffect(() => {
+  React.useLayoutEffect(() => {
     if (listDisplay) {
       searchEl?.current?.focus()
     }

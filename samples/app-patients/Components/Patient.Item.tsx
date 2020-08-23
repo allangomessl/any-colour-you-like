@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import { Col, Item, Avatar, features } from 'universe-ui'
 import moment from 'moment'
 import { Patient } from '../Api/Patient'

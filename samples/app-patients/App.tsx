@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { Link, Breadcrumb, Item, Row, Col, Root, Nav } from 'universe-ui'
 import { Link as RouterLink, HashRouter as Router } from 'react-router-dom'
 import './Handlers'

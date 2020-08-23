@@ -1,4 +1,4 @@
-import React, { useCallback, KeyboardEvent, useRef, FocusEvent, useImperativeHandle, useEffect } from 'react'
+import * as React from 'react'
 import { InputText } from './Text'
 import moment, { Moment } from 'moment'
 import { Row } from '../Flex'
@@ -19,14 +19,14 @@ export declare namespace InputDate {
 export type InputDate = React.FC<InputDate.Props>
 
 export const InputDate: InputDate = React.forwardRef((props, ref) => {
-  const dateEl = useRef<HTMLInputElement>()
-  const timeEl = useRef<HTMLInputElement>()
-  const inputEl = useRef<HTMLInputElement>()
-  useImperativeHandle(ref, () => inputEl.current)
+  const dateEl = React.useRef<HTMLInputElement>()
+  const timeEl = React.useRef<HTMLInputElement>()
+  const inputEl = React.useRef<HTMLInputElement>()
+  React.useImperativeHandle(ref, () => inputEl.current)
 
-  const delta = useRef(0)
-  const incs = useRef([])
-  const value = useRef<Moment>() 
+  const delta = React.useRef(0)
+  const incs = React.useRef([])
+  const value = React.useRef<Moment>() 
 
   const { name } = props
 
@@ -35,12 +35,12 @@ export const InputDate: InputDate = React.forwardRef((props, ref) => {
     time: props.maskTime || '29:69'
   }
 
-  const clearMemory = useCallback(() => {
+  const clearMemory = React.useCallback(() => {
     incs.current = []
     delta.current = 0
   }, [])
 
-  const setValue = useCallback((date: Moment, type: InputDate.Type = null) => {
+  const setValue = React.useCallback((date: Moment, type: InputDate.Type = null) => {
     let newValue = value.current || moment()
 
     if (date) {
@@ -64,17 +64,17 @@ export const InputDate: InputDate = React.forwardRef((props, ref) => {
     inputEl.current.value = newValue?.toISOString() || null
   }, [clearMemory])
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (inputEl?.current?.value) {
       setValue(moment(inputEl?.current?.value), 'datetime')
     }
   }, [inputEl?.current?.value])
 
-  const onFocus = useCallback((ev: KeyboardEvent<HTMLInputElement>) => {
+  const onFocus = React.useCallback((ev: React.KeyboardEvent<HTMLInputElement>) => {
     clearMemory()
   }, [clearMemory])
 
-  const onKeyDown = useCallback((ev: KeyboardEvent<HTMLInputElement>) => {
+  const onKeyDown = React.useCallback((ev: React.KeyboardEvent<HTMLInputElement>) => {
     const element = ev.currentTarget
     const value = element.value
     const code = ev.nativeEvent.code
@@ -135,7 +135,7 @@ export const InputDate: InputDate = React.forwardRef((props, ref) => {
 
   }, [setValue])
 
-  const onKeyUp = useCallback((ev: KeyboardEvent<HTMLInputElement>) => {
+  const onKeyUp = React.useCallback((ev: React.KeyboardEvent<HTMLInputElement>) => {
     const element = ev.currentTarget
     const value = element.value
     const type = element === dateEl.current ? 'date' : 'time'
@@ -148,7 +148,7 @@ export const InputDate: InputDate = React.forwardRef((props, ref) => {
 
   }, [])
 
-  const onBlur = useCallback((ev: FocusEvent<HTMLInputElement>) => {
+  const onBlur = React.useCallback((ev: React.FocusEvent<HTMLInputElement>) => {
     const element = ev.currentTarget
     const type = element === dateEl.current ? 'date' : 'time'
 

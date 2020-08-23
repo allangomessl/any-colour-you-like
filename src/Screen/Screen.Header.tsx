@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import { Row } from '../Flex'
 import { Box } from '../Flex/Box'
 

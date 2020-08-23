@@ -1,6 +1,6 @@
-import React from 'react'
+import * as React from 'react'
 import styled from 'styled-components'
-import { Html, features, mixins, styles } from '../styles'
+import { Html, mixins, styles } from '../styles'
 
 type RouterLink = React.FC<{ to: any }>
 var RouterLink: RouterLink = Html.A as any

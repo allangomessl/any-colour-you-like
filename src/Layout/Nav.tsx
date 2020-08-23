@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import { Col } from '../Flex'
 import { Button } from '../Action'
 import styled from 'styled-components'

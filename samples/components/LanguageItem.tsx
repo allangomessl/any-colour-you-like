@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import { Item, Avatar } from "universe-ui"
 
 export const LanguageItem = ({ data, ...props }) => {

@@ -120,7 +120,6 @@ const typograpy = {
   fontFamily: "'Noto Sans JP', sans-serif"
 }
 
-
 const multiply = {
   border: '1px',
   margin: '4px',

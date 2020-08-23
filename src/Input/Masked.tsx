@@ -1,4 +1,4 @@
-import React, { useImperativeHandle, useRef, useLayoutEffect } from 'react'
+import * as React from 'react'
 import { InputText } from './Text'
 import IMask from 'imask'
 import { useI18n, langs } from '../I18n'
@@ -29,18 +29,18 @@ export const InputMasked: InputMasked = React.forwardRef((props, ref) => {
 
   const { masks } = useI18n()
 
-  const mask = useRef<IMask.InputMask<IMask.AnyMaskedOptions>>()
+  const mask = React.useRef<IMask.InputMask<IMask.AnyMaskedOptions>>()
   
-  const inputEl = useRef<HTMLInputElement>()
-  useImperativeHandle(ref, () => inputEl.current)
+  const inputEl = React.useRef<HTMLInputElement>()
+  React.useImperativeHandle(ref, () => inputEl.current)
 
-  useLayoutEffect(() => {
+  React.useLayoutEffect(() => {
     if (mask.current) {
       mask.current.value = inputEl.current?.value
     }
   }, [inputEl.current?.value])
 
-  useLayoutEffect(() => {
+  React.useLayoutEffect(() => {
     const options = Object.assign({
       format: true
     } as Partial<IMask.AnyMaskedOptions>, all[props.type] ?? masks[props.type] as any)

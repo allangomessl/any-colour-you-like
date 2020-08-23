@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react'
+import * as React from 'react'
 import { Html, styles, mixins } from '../styles'
 import { Link } from './Link'
 import styled, { css } from 'styled-components'
@@ -34,7 +34,7 @@ export const Button: Button = React.forwardRef<HTMLButtonElement, Button.Props>(
   const Wrapper = (props.to || props.href ) ? WrapperLink : WrapperButton as any
   const textIcon = props.Icon && (props.children && !props.circle)
 
-  const ButtonIcon = useCallback(Icon ? styled(Icon)`
+  const ButtonIcon = React.useCallback(Icon ? styled(Icon)`
     font-size: 1em;
     height: 1em;
     width: 1em;

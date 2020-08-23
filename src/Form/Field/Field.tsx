@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import { useForm } from '../Form'
 
 export type Field = React.FC<any> & {

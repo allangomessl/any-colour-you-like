@@ -1,8 +1,8 @@
-import React, { useCallback, FC, useRef } from "react"
+import * as React from "react"
 import { Slot } from "./Slot"
 
-export function useSlot(slot: string, children: any, defaultRender: FC<any> | string) {
-  const props = useRef<any>({})
+export function useSlot(slot: string, children: any, defaultRender: React.FC<any> | string) {
+  const props = React.useRef<any>({})
   const normChildren = React.Children.toArray(children)
 
   const Ext = normChildren?.find((p: any) => {
@@ -12,14 +12,14 @@ export function useSlot(slot: string, children: any, defaultRender: FC<any> | st
   Object.assign(props.current, Ext?.props || {})
   Object.assign(props.current, Ext?.ref ? { ref: Ext.ref } : {})
 
-  const Render = useCallback(React.forwardRef(({ as, ...props }: any, ref) => {
+  const Render = React.useCallback(React.forwardRef(({ as, ...props }: any, ref) => {
     return React.createElement(as, {
       ...props,
       ref
     })
   }), [])
 
-  const Forward = useCallback(React.forwardRef((props: any, ref) => {
+  const Forward = React.useCallback(React.forwardRef((props: any, ref) => {
     return React.createElement(Slot, {
       ...props,
       ref

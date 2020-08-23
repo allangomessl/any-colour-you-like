@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import { Col, Row } from '../Flex'
 import styled from 'styled-components'
 import { ScreenHeader } from './Screen.Header'

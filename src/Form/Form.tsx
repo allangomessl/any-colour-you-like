@@ -1,11 +1,11 @@
-import React, { createContext, useContext, useImperativeHandle, useState, useEffect, useCallback } from 'react'
+import * as React from 'react'
 import { mixins, Html } from '../styles'
 import styled from 'styled-components'
 
-const FormContext = createContext({})
+const FormContext = React.createContext({})
 
 export function useForm() {
-  return useContext(FormContext)
+  return React.useContext(FormContext)
 }
 
 export declare namespace Form {
@@ -41,7 +41,7 @@ export const Form: Form = React.forwardRef((props, ref) => {
     throw waitform
   }
 
-  const handleSubmit = useCallback(async (data: any, ...args: any[]) => {
+  const handleSubmit = React.useCallback(async (data: any, ...args: any[]) => {
     try {
       const result = await props.onSubmit?.call(null, data, ...args)
       props.onSuccess?.call(null, result, ...args)
@@ -54,7 +54,7 @@ export const Form: Form = React.forwardRef((props, ref) => {
     ...props,
     onSubmit: handleSubmit
   })
-  useImperativeHandle(ref, () => form.ref)
+  React.useImperativeHandle(ref, () => form.ref)
 
   return (
     <FormContext.Provider value={form.context}>

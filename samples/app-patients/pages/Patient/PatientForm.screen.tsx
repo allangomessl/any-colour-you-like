@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import * as React from 'react'
 import { Screen, Col, Input, Button } from "universe-ui"
 import { useParams, useNavigate } from 'react-router'
 import styled from 'styled-components'
@@ -17,7 +17,7 @@ const sex = [ 'M', 'F' ]
 
 export const PatientFormScreen = ({ repository }) => {
 
-  const submitRef = useRef<any>()
+  const submitRef = React.useRef<any>()
   const data = repository.detail.data
   const { id } = useParams()
   const nav = useNavigate()
@@ -30,13 +30,13 @@ export const PatientFormScreen = ({ repository }) => {
     mode: 'onBlur'
   })
 
-  useEffect(() => {
+  React.useEffect(() => {
     patient.handle({ id }).then(data => {
       reset(data)
     })
   }, [id])
 
-  useEffect(() => {
+  React.useEffect(() => {
     repository.detail.handle({ id })
   }, [id])
 
@@ -57,7 +57,7 @@ export const PatientFormScreen = ({ repository }) => {
           <Input.Text ref={register} name='name' label='Nome' />
           <Input.Select ref={register} name='sex' label='Sexo' items={sex} />
           <Input.Date ref={register} name='dateBirth' />
-          <Input.Masked ref={register} name='phone' />
+          <Input.Masked ref={register} name='phone' type='phone' />
         </Col>
       </FlexForm>
     </Screen>

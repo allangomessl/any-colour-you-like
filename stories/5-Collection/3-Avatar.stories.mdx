@@ -1,0 +1,36 @@
+import { Meta, Preview, Story, Props, Source, Mdx } from '@storybook/addon-docs/blocks'
+import { Link, List, Breadcrumb, Button, Row, Col, Avatar, Item } from 'universe-ui'
+import { useState, useCallback } from 'react'
+import { useGithub } from '../../samples/hooks'
+import { GithubUserItem } from '../../samples/components'
+import { HouseDamage } from '@styled-icons/fa-solid/HouseDamage'
+import { Male } from '@styled-icons/boxicons-regular/Male'
+
+<Meta title="Collection/Avatar" component={Avatar} />
+
+# Avatar
+
+## Icon
+<Preview>
+  <Story name="bar" dir='row' gap={2}>
+    <Avatar Icon={Male} color='blue' />
+    <Avatar Icon={HouseDamage} color='red' />
+  </Story>
+</Preview>
+
+
+## Sizes
+<Preview>
+  <Story name="sizes" dir='row' gap={2}>
+    <Avatar size='1' Icon={HouseDamage} color='blue' />
+    <Avatar size='2' Icon={HouseDamage} color='blue' />
+    <Avatar size='3' Icon={HouseDamage} color='blue' />
+    <Avatar size='4' Icon={HouseDamage} color='blue' />
+    <Avatar size='5' Icon={HouseDamage} color='blue' />
+    <Avatar size='6' Icon={HouseDamage} color='blue' />
+    <Avatar size='7' Icon={HouseDamage} color='blue' />
+    <Avatar size='8' Icon={HouseDamage} color='blue' />
+    <Avatar size='9' Icon={HouseDamage} color='blue' />
+    <Avatar size='10' Icon={HouseDamage} color='blue' />
+  </Story>
+</Preview>

@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import * as React from 'react'
 import { Slot } from '../rp'
 import { Row } from '../Flex'
 import styled from 'styled-components'
@@ -17,11 +17,11 @@ export declare namespace Breadcrumb {
 
 }
 
-export type Breadcrumb = FC<Breadcrumb.Props> & {
-  Item?: FC<Breadcrumb.Item>
-  Bar?: FC<any>
-  Arrow?: FC<any>
-  Divider?: FC<any>
+export type Breadcrumb = React.FC<Breadcrumb.Props> & {
+  Item?: React.FC<Breadcrumb.Item>
+  Bar?: React.FC<any>
+  Arrow?: React.FC<any>
+  Divider?: React.FC<any>
 }
 
 export const Breadcrumb: Breadcrumb = React.forwardRef(({ children, ...props }, ref) => {

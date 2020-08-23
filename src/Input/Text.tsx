@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useCallback, useRef, useImperativeHandle } from 'react'
+import * as React from 'react'
 import styled from 'styled-components'
 import { Col } from '../Flex'
 import { mixins, Html, styles } from '../styles'
@@ -29,16 +29,16 @@ export type InputText = React.FC<InputText.Props>
 export const InputText: InputText = React.forwardRef((props, ref) => {
   const { label, wRef, name, onChange } = props
 
-  const inputEl = useRef<HTMLInputElement>()
-  useImperativeHandle(ref, () => inputEl.current)
+  const inputEl = React.useRef<HTMLInputElement>()
+  React.useImperativeHandle(ref, () => inputEl.current)
 
   const InputSlot = useSlot('input', props.children, Html.Input)
 
-  useLayoutEffect(() => {
+  React.useLayoutEffect(() => {
     inputEl.current.value = props.value === undefined ? '' : props.value
   }, [props.value])
 
-  const handleChange = useCallback((ev: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = React.useCallback((ev: React.ChangeEvent<HTMLInputElement>) => {
     onChange?.call(null, ev.currentTarget.value, ev)
   }, [onChange])
 

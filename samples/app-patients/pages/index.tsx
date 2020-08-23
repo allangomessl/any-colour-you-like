@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import { PatientListScreen } from './Patient/PatientList.screen'
 import { Routes, Route } from 'react-router'
 

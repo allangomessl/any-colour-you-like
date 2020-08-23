@@ -1,4 +1,4 @@
-import React, { useCallback, useRef, KeyboardEvent, useState, useMemo, useEffect, useLayoutEffect, useImperativeHandle } from 'react'
+import * as React from 'react'
 import { Col, Box } from '../Flex'
 import { Item } from '../Item'
 import styled, { css } from 'styled-components'
@@ -34,9 +34,9 @@ export type List<T=any> = React.FC<List.Props<T>> & {
 
 export const List: List = React.forwardRef((props, ref) => {
   const [query, setQuery] = useDebounceState(500)
-  const [stateData, setStateData] = useState(props.items)
-  const [focused, setFocused] = useState(0)
-  const [showList, setShowList] = useState(!props.dropdown)
+  const [stateData, setStateData] = React.useState(props.items)
+  const [focused, setFocused] = React.useState(0)
+  const [showList, setShowList] = React.useState(!props.dropdown)
 
   const { wrapper, search, ul } = useProps(props, {
     wrapper: [...mixins.element.props, 'dropdown', 'role', 'tabIndex', 'onKeyDown'],
@@ -45,12 +45,12 @@ export const List: List = React.forwardRef((props, ref) => {
   })
 
   // const stateData = useRef<any[]>(props.items)
-  const localSearch = useCallback((query: string) => {
+  const localSearch = React.useCallback((query: string) => {
     const results = new Fuse(props.items || [], { keys: props.search ?? [] as any }).search(query)
     return results.map(r => r.item)
   }, [props.items, props.search])
 
-  useLayoutEffect(() => {
+  React.useLayoutEffect(() => {
     if (query) {
       const finder = props.search?.call ? props.search : localSearch
       const results = finder.call(null, query)
@@ -64,7 +64,7 @@ export const List: List = React.forwardRef((props, ref) => {
     }
   }, [setStateData, query, props.items])
 
-  const setCurrentIndex = useCallback((index: number) => {
+  const setCurrentIndex = React.useCallback((index: number) => {
     const normIndex = Math.min(stateData.length - 1, Math.max(0, index))
     if (normIndex != focused) {
       setFocused(normIndex)
@@ -72,17 +72,17 @@ export const List: List = React.forwardRef((props, ref) => {
     return normIndex
   }, [setFocused, focused, stateData])
 
-  useEffect(() => {
+  React.useEffect(() => {
     setCurrentIndex(focused)
   }, [setCurrentIndex, stateData])
 
-  const ulEl = useRef<HTMLDivElement>()
-  useImperativeHandle(ref, () => ulEl.current)
+  const ulEl = React.useRef<HTMLDivElement>()
+  React.useImperativeHandle(ref, () => ulEl.current)
 
   const SearchSlot = useSlot('search', props.children, InputText)
   const ItemSlot = useSlot('item', props.children, ItemText)
 
-  const listShow = useCallback((value: boolean) => {
+  const listShow = React.useCallback((value: boolean) => {
     if (!props.dropdown) {
       return
     }
@@ -90,7 +90,7 @@ export const List: List = React.forwardRef((props, ref) => {
     props.onListDisplayed?.call(null, value)
   }, [props.dropdown, props.onListDisplayed, setShowList])
 
-  ul.onScroll = useCallback((ev) => {
+  ul.onScroll = React.useCallback((ev) => {
     const el = ev.target
     const finish = el.scrollHeight - el.clientHeight
     if (ev.target.scrollTop == finish) {
@@ -98,14 +98,14 @@ export const List: List = React.forwardRef((props, ref) => {
     }
   }, [props.more])
 
-  search.onChange = useCallback((value: string, ev: KeyboardEvent<HTMLInputElement>) => {
+  search.onChange = React.useCallback((value: string, ev: React.KeyboardEvent<HTMLInputElement>) => {
     if (query !== value) {
       setQuery(value)
     }
     SearchSlot.props?.onChange?.call(null, value, ev)
   }, [query, setQuery])
 
-  search.onKeyDown = useCallback((ev: KeyboardEvent<HTMLInputElement>) => {
+  search.onKeyDown = React.useCallback((ev: React.KeyboardEvent<HTMLInputElement>) => {
     const code = ev.nativeEvent.code
 
     if (/Tab/.test(code) || ev.ctrlKey || ev.metaKey) {
@@ -154,17 +154,17 @@ export const List: List = React.forwardRef((props, ref) => {
   }, [focused, setCurrentIndex])
 
 
-  search.onBlur = useCallback(() => {
+  search.onBlur = React.useCallback(() => {
     setTimeout(() => {
       listShow(false)
     }, 150)
   }, [listShow])
 
-  search.onFocus = useCallback(() => {
+  search.onFocus = React.useCallback(() => {
     listShow(true)
   }, [listShow])
 
-  const items = useMemo(() => {
+  const items = React.useMemo(() => {
     return stateData.map((item: any, index: number) => {
       const handleClick = (ev: any) => {
         setFocused(index)
