@@ -1,4 +1,4 @@
-import map from 'lodash/fp/map'
+import { map } from 'lodash/fp'
 import { useCallback, useMemo, useState } from 'react'
 
 export declare namespace useIndexed {

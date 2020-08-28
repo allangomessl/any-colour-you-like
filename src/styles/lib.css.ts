@@ -1,5 +1,5 @@
 import { css, FlattenSimpleInterpolation, ThemeProps, ThemedStyledProps } from 'styled-components'
-import get from 'lodash/fp/get'
+import { get } from 'lodash/fp'
 
 export type HTMLSize = string | number
 

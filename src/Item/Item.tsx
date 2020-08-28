@@ -1,3 +1,4 @@
+import React from 'react'
 import { Row } from '../Flex'
 import styled, { css } from 'styled-components'
 import { ItemText } from './Text'
@@ -5,15 +6,15 @@ import { Link } from '../Action'
 
 export declare namespace Item {
 
-  export type Props = Link.Props & {
+  export type Props<T=any> = Link.Props & {
     ref?: any
     focused?: boolean
-    data?: any
+    data?: T
     children?: any
   }
 }
 
-export type Item = React.FC<Item.Props> & {
+export type Item<T=any> = React.FC<Item.Props<T>> & {
   Text?: typeof ItemText
 }
 

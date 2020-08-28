@@ -3,6 +3,7 @@ import { Slot } from '../rp'
 import { Row } from '../Flex'
 import styled from 'styled-components'
 import { Link } from '../Action'
+import { features } from '../styles'
 
 export declare namespace Breadcrumb {
 
@@ -42,11 +43,21 @@ export const Breadcrumb: Breadcrumb = React.forwardRef(({ children, ...props }, 
   )
 })
 
+Breadcrumb.defaultProps = {
+  role: 'Breadcrumb'
+}
+
 Breadcrumb.Item = Slot.of('item', (props: Breadcrumb.Item) => (
   <Link {...props}>{props.label}</Link>
 ))
 
 const Wrapper = styled(Row)`
+  ${features.size};
+  align-items: center;
+  line-height: calc(1em * var(--size));
+  height: calc(1em * var(--size));
+  font-size: calc(1em * var(--size));
+  padding: 1em 0;
 `
 
 Breadcrumb.Divider = (props: any) => {

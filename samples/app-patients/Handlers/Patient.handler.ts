@@ -1,5 +1,5 @@
 import { Patient } from '../Api/Patient'
-import indexBy from 'lodash/fp/indexBy';
+import { indexBy } from 'lodash/fp'
 import faker from 'faker';
 
 var range = (start: any, end: any) => [...Array(end - start + 1)].map((_, i) => start + i);

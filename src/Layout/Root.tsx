@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Row } from '../Flex'
 import styled from 'styled-components'
-import { ThemeProvider } from 'styled-components';
+import { ThemeProvider, createGlobalStyle } from 'styled-components';
 import { Theme, base } from '../themes'
 import { I18n, langs } from '../I18n'
 
@@ -19,12 +19,14 @@ export const Root: Root = React.forwardRef(({ theme, children, i18n, ...props },
 
   return (
     <ThemeProvider theme={theme}>
+      <GlobalStyles />
       <I18n value={langs[i18n as any] || i18n}>
         <Wrapper ref={ref} {...props}>{children}</Wrapper>
       </I18n>
     </ThemeProvider>
   )
 })
+
 Root.defaultProps = {
   theme: base,
   i18n: 'pt-br',
@@ -34,11 +36,13 @@ Root.defaultProps = {
 }
 
 export const Wrapper = styled(Row)`
+`
 
+export const GlobalStyles = createGlobalStyle`
   body {
     margin: 0;
   }
 
-  font-size: ${props => props.theme.typograpy.fontSize};
+  font-size: ${props => props.theme.typograpy.fontSize}; */
   * { outline: none; };
 `
