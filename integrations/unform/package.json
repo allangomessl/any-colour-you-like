@@ -1,0 +1,36 @@
+{
+  "name": "@universe-ui/unform",
+  "version": "0.0.0",
+  "description": "",
+  "main": "dist/cjs/index.js",
+  "module": "dist/es/index.js",
+  "types": "dist/types",
+  "homepage": "https://allangomessl.github.io/universe-ui",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/allangomessl/universe-ui.git"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "tag": "latest"
+  },
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build:es": "tsc -m es2015 --outDir dist/es -p tsconfig.build.json",
+    "build:cjs": "tsc -m CommonJS --outDir dist/cjs -p tsconfig.build.json",
+    "build": "npm run clean && npm run build:es && npm run build:cjs",
+    "prepack": "npm run build",
+    "postpack": "npm run clean"
+  },
+  "keywords": [],
+  "author": "Allan Gomes <allanmaiagomes@gmail.com>",
+  "license": "ISC",
+  "peerDependencies": {
+    "unform": "1"
+  },
+  "devDependencies": {
+    "unform": "^1.2.3"
+  }
+}

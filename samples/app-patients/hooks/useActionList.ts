@@ -1,13 +1,13 @@
 import { useState, useCallback, useEffect } from 'react'
-import { Action, mediatr } from '@mediatr/core'
+import { Command, mediatr } from '@mediatr/core'
 import { Query } from '@mediatr/crud-api'
 import { useIndexed } from './useIndexed'
-import { useAction } from './useAction'
+import { useCommand } from './useCommand'
 
 export const Empty = []
 
-export function useActionList<P extends Query.FindMany, R>(action: Action<P, R>, def: R = null as any) {
-  const list = useAction(action)
+export function useActionList<P extends Query.FindMany, R>(command: Command<P, R>, def: R = null as any) {
+  const list = useCommand(command)
   const [lastParam, setLastParam] = useState<P>({} as any)
 
   const data = useIndexed(Empty)
@@ -16,7 +16,7 @@ export function useActionList<P extends Query.FindMany, R>(action: Action<P, R>,
     data.clear()
     await list.handle(params)
     setLastParam({ ...params })
-  }, [data, setLastParam, action, list.handle])
+  }, [data, setLastParam, command, list.handle])
 
   const next = useCallback(async () => {
     lastParam.skip = (lastParam.skip || 0) + (lastParam.take || 30)

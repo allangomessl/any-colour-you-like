@@ -1,4 +1,4 @@
-export * from './useAction'
+export * from './useCommand'
 export * from './useActionList'
 export * from './useIndexed'
 export * from './useRepository'

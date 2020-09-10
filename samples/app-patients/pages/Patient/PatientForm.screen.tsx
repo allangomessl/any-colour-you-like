@@ -1,10 +1,9 @@
 import * as React from 'react'
-import { Screen, Col, Input, Button } from "universe-ui"
+import { Screen, Col, Input, Button, Slot } from "@universe-ui/core"
 import { useParams, useNavigate } from 'react-router'
 import styled from 'styled-components'
-import { Slot } from '@side-of-the/rp'
 import { useForm } from "react-hook-form";
-import { useAction } from '../../hooks/useAction'
+import { useCommand } from '@mediatr/react'
 import { Patient } from '../../Api/Patient'
 
 const FlexForm = styled.form`
@@ -23,7 +22,7 @@ export const PatientFormScreen = ({ repository }) => {
   const nav = useNavigate()
 
 
-  const patient = useAction(Patient.detail)
+  const patient = useCommand(Patient.detail)
 
   const { register, handleSubmit, reset } = useForm({
     defaultValues: patient.data || {},

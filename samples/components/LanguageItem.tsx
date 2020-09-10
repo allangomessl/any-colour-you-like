@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Item, Avatar } from "universe-ui"
+import { Item, Avatar } from "@universe-ui/core"
 
 export const LanguageItem = ({ data, ...props }) => {
 

@@ -1,17 +1,17 @@
 import { useState, useCallback } from 'react'
-import { Action, mediatr } from '@mediatr/core'
+import { Command, mediatr } from '@mediatr/core'
 
-export function useAction<P, R>(action: Action<P, R>, def: R = null as any) {
+export function useCommand<P, R>(command: Command<P, R>, def: R = null as any) {
   const [loading, setLoading] = useState(false)
   const [data, setData] = useState(def)
 
   const handle = useCallback(async (params) => {
     setLoading(true)
-    const result = await mediatr.handle(action, params)
+    const result = await mediatr.handle(command, params)
     setData(result)
     setLoading(false)
     return result
-  }, [action, setLoading, setData])
+  }, [command, setLoading, setData])
 
   return { data, loading, handle }
 

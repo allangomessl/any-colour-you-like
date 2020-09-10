@@ -1,30 +1,23 @@
 {
   "name": "universe-ui",
   "version": "1.0.0-alpha.95",
+  "private": true,
   "description": "",
-  "main": "dist/cjs/index.js",
-  "module": "dist/es/index.js",
-  "types": "dist/types",
   "homepage": "https://allangomessl.github.io/universe-ui",
+  "workspaces": [
+    "core",
+    "integrations/*",
+    "website"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/allangomessl/universe-ui.git"
   },
-  "files": [
-    "dist"
-  ],
-  "publishConfig": {
-    "tag": "latest"
-  },
   "scripts": {
-    "clean": "rm -rf dist",
-    "start": "start-storybook -p 6006 --docs --no-dll",
-    "docs": "build-storybook -o ./docs --docs --no-dll",
-    "build:es": "tsc -m es2015 --outDir dist/es -p tsconfig.build.json",
-    "build:cjs": "tsc -m CommonJS --outDir dist/cjs -p tsconfig.build.json",
-    "build": "npm run clean && npm run build:es && npm run build:cjs",
-    "prepack": "npm run build",
-    "postpack": "npm run clean"
+    "docs:build": "yarn workspace @universe-ui/website build",
+    "docs:export": "yarn workspace @universe-ui/website export -o ../docs",
+    "docs": "run-s docs:build docs:export",
+    "start": "yarn workspace @universe-ui/website dev"
   },
   "keywords": [],
   "author": "Allan Gomes <allanmaiagomes@gmail.com>",
@@ -34,36 +27,18 @@
     "imask": "^6.0.5"
   },
   "peerDependencies": {
-    "moment": "*",
-    "styled-components": "*"
+    "moment": "2",
+    "styled-components": "5"
   },
   "devDependencies": {
-    "styled-icons": "^10.17.0",
-    "unform": "^1.2.3",
-    "@babel/core": "^7.11.4",
-    "@storybook/addon-controls": "^6.0.16",
-    "@storybook/addon-docs": "^6.0.16",
-    "@storybook/addons": "^6.0.16",
-    "@storybook/react": "^6.0.16",
-    "@types/react": "16.9.46",
-    "@types/lodash": "4.14.159",
-    "@types/styled-components": "5.1.2",
-    "babel-loader": "^8.1.0",
-    "faker": "^5.0.0",
-    "history": "^5.0.0",
-    "html-loader": "^1.2.1",
-    "lodash": "^4.17.20",
-    "markdown-loader": "^5.1.0",
-    "moment": "^2.27.0",
-    "react": "^16.13.1",
-    "react-docgen-typescript-loader": "^3.7.2",
-    "react-dom": "^16.13.1",
-    "react-hook-form": "6.5.0",
-    "react-markdown": "^4.3.1",
+    "lerna": "latest",
+    "npm-run-all": "latest",
+    "react": "next",
+    "react-dom": "next",
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "typescript": "latest",
     "react-router": "next",
-    "react-router-dom": "next",
-    "styled-components": "^5.1.1",
-    "typescript": "^4.0.2",
-    "typescript-transform-paths": "^2.0.0"
+    "react-router-dom": "next"
   }
 }

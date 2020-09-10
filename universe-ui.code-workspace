@@ -1,20 +1,24 @@
 {
 	"folders": [
-		{
-			"name": "✨ SOURCE",
-			"path": "./src"
+    {
+      "name": "core",
+      "path": "core"
     },
     {
-			"name": "📦 SAMPLES",
-			"path": "./samples"
+      "name": "integrations",
+      "path": "integrations"
     },
     {
-			"name": "📦 STORYBOOK",
-			"path": "./stories"
+      "name": "samples",
+      "path": "samples"
     },
     {
-			"name": "💾 ROOT",
-			"path": "."
+      "name": "website",
+      "path": "website"
+    },
+    {
+      "name": "💾 ROOT",
+      "path": "."
     }
 	],
   "settings": {
@@ -25,7 +29,7 @@
       "**/.hg": true,
       "**/CVS": true,
       "**/.DS_Store": true,
-      "**/dist": false,
+      "**/dist": true,
       "**/node_modules": true
     },
     "explorerExclude.backup": null

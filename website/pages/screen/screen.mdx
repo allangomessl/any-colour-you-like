@@ -1,0 +1,23 @@
+import { useState, useRef } from 'react'
+import { Screen, List, Slot, Button } from '@universe-ui/core'
+
+# Screen
+
+<br /><br />
+
+## Empty
+
+```tsx live dir=row h=600px
+<Screen fill minW='500px' />
+```
+
+## With List
+
+```tsx live dir=row h=600px
+<Screen fill minW='500px' title='Front-End Stacks'>
+  <Slot slot='header'>
+    <Button circle color='blue' />
+  </Slot>
+  <List items={['React', 'Vue', 'Angular']} />
+</Screen>
+```

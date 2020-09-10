@@ -1,6 +1,6 @@
 import * as React from "react"
 import { Source } from '@storybook/addon-docs/dist/blocks'
-import { Col, Row, Button } from "universe-ui"
+import { Col, Row, Button } from "@universe-ui/core"
 import styled from "styled-components";
 
 export const useFlexProps = () => {

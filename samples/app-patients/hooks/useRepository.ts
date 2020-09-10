@@ -1,14 +1,14 @@
 import { useEffect, useCallback } from "react"
 import { Model, Query } from '@mediatr/crud-api'
-import { useAction } from "./useAction"
+import { useCommand } from "./useCommand"
 import { useActionList } from "./useActionList"
 
 export function useRepository<T extends Model.Crud<any>>(Model: T) {
-  const listSearch = useAction(Model.list)
+  const listSearch = useCommand(Model.list)
   const list = useActionList(Model.list)
-  const detail = useAction(Model.detail)
-  const save = useAction(Model.save)
-  const remove = useAction(Model.remove)
+  const detail = useCommand(Model.detail)
+  const save = useCommand(Model.save)
+  const remove = useCommand(Model.remove)
 
   useEffect(() => {
     if (save.data) {

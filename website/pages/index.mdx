@@ -1,0 +1,44 @@
+# UNIVERSE UI
+
+<img src="https://raw.githubusercontent.com/allangomessl/universe-ui/master/static/full-logo.png" alt="logo" width="100%"/>
+
+## Install
+
+```sh
+# npm
+npm i @universe-ui/core styled-components
+
+# yarn
+yarn add @universe-ui/core styled-components
+```
+
+
+### Setup
+
+in your `app.tsx`
+```tsx
+import { Root } from "@universe-ui/core"
+import { darkSide } from "@universe-ui/themes"
+
+export const App = () => {
+  <Root theme={darkSide}>
+    {...}
+  </Root>
+}
+```
+
+
+### Using Router
+
+```tsx
+import { Link } from "@universe-ui/core"
+import { Link as RouterLink } from 'react-router-dom'
+
+Link.initialize(RouterLink)
+
+// and after
+
+<Link to="path" /> // render as Router Link
+<Button to="path" /> // render as Router Link
+<Button href="path" /> // render as normal anchor
+```

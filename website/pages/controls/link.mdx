@@ -1,0 +1,31 @@
+# Link
+
+## As Text
+
+- **to** will use your Router to navigation
+- **href** will use a **a** normal
+
+```tsx live
+<Row justify='space-around' wrap>
+  <Link>Without Action</Link>
+  <Link to='#'>With "to"</Link>
+  <Link href='#'>With "href"</Link>
+  <Link onClick={window.alert}>With "onClick"</Link>
+</Row>
+```
+
+## As Container
+
+if you pass **dir** in props, Link will be a container
+
+```tsx live
+<Col>
+  <Link dir='row' gap={4} to='#' padding='1' margin='1' border='1' corner='4'>
+    <Avatar />
+    <Col justify='space-around'>
+      <strong>Title</strong>
+      <span>Sub Title</span>
+    </Col>
+  </Link>
+</Col>
+```

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Item, Avatar, Col } from 'universe-ui'
+import { Item, Avatar, Col } from '@universe-ui/core'
 
 export const GithubUserItem = ({ data, focused, onClick }) => {
   return (

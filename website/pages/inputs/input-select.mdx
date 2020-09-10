@@ -1,0 +1,41 @@
+# Input Select
+
+<br /><br />
+
+## Basic
+
+```tsx live
+<Input.Select label='Basic' items={['Javascript', 'Kotlin', 'Csharp', 'Swift', 'Java', 'Rust', 'Go', 'Elixir', 'Ruby', 'Python']} />
+```
+
+<br /><br />
+
+## Custom Template
+
+```tsx live noInline=true
+const languages = [
+  {
+    image: 'https://image.flaticon.com/icons/svg/226/226777.svg',
+    name: 'Java'
+  },
+  {
+    image: 'https://image.flaticon.com/icons/svg/919/919828.svg',
+    name: 'Javascript'
+  }
+]
+
+const LanguageItem = ({ data, ...props }) => {
+  return (
+    <Item {...props}>
+      <Avatar imageUrl={data.image} />
+      {data.name}
+    </Item>
+  )
+}
+
+render(
+  <Input.Select label='Languages' items={languages} search={['name']} toText={(data) => data.name}>
+    <Slot slot='item' as={LanguageItem} />
+  </Input.Select>
+)
+```
