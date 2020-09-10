@@ -10,7 +10,7 @@ export const liveEditorStyle: React.CSSProperties = {
   overflowX: "auto",
   fontFamily: "Fira Code, SF Mono, Menlo, monospace",
   fontVariantLigatures: "common-ligatures",
-  borderRadius: '4px'
+  padding: 8
 }
 
 export const liveErrorStyle: React.CSSProperties = {
@@ -49,7 +49,7 @@ export const CodeBlock = (props) => {
   if (!live) {
     return (
       <LiveProvider disabled {...liveProviderProps}>
-        <LiveEditor style={liveEditorStyle} />
+        <MyLiveEditor corner='4' />
       </LiveProvider>
     )
   }
@@ -67,9 +67,7 @@ export const CodeBlock = (props) => {
       <Row padding='1' border='1' justify='center' corner={previewCorner}>
         <Link onClick={toggleCode}>{previewTitle}</Link>
       </Row>
-      {showCode && <Box padding='4' border='1' corner='B4'>
-        <LiveEditor onChange={onChange} style={liveEditorStyle} />
-      </Box>}
+      {showCode && <MyLiveEditor border='1' corner='B4' onChange={onChange} />}
       <LiveError style={liveErrorStyle} />
     </LiveProvider>
   )
@@ -82,4 +80,14 @@ CodeBlock.defaultProps = {
 const MyLivePreview = styled(LivePreview)`
   ${mixins.clear};
   ${mixins.container};
+`
+
+const MyLiveEditor = styled(LiveEditor)`
+  ${mixins.clear};
+  ${mixins.element};
+  font-size: 16 !important;
+  overflow-x: auto;
+  font-family: Fira Code, SF Mono, Menlo, monospace !important;
+  font-variant-ligatures: common-ligatures;
+  padding: 8;
 `

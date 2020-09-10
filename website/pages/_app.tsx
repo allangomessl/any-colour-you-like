@@ -23,7 +23,9 @@ function MyApp({ Component, pageProps }) {
     <MDXProvider>
       <Root dir='row' h='100vh'>
         <Col w='300px' gap={4} border='R2' scrollable>
-          <img src='/logo.png' height='100px' />
+          <Link to='/'>
+            <img src='/logo.png' height='100px' />
+          </Link>
           <Col padding='3'>
             <h3>Inputs</h3>
             <Col padding='L3' gap={4}>
