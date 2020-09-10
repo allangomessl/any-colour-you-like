@@ -9,7 +9,7 @@
 
 <br /><br />
 
-[DOCUMENTATION HERE](https://allangomessl.github.io/universe-ui)
+[DOCUMENTATION HERE](https://universe-ui.vercel.app/)
 
 <br /><br />
 
