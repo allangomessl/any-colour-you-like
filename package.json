@@ -14,9 +14,6 @@
     "url": "https://github.com/allangomessl/universe-ui.git"
   },
   "scripts": {
-    "docs:build": "yarn workspace @universe-ui/website build",
-    "docs:export": "yarn workspace @universe-ui/website export -o ../docs",
-    "docs": "run-s docs:build docs:export",
     "start": "yarn workspace @universe-ui/website dev"
   },
   "keywords": [],
