@@ -1,5 +1,5 @@
 
-# Universe UI
+# PAINTBOX
 
 [![alt](https://raw.githubusercontent.com/allangomessl/paintbox/master/static/full-logo.png)](https://allangomessl.github.io/paintbox)
 
