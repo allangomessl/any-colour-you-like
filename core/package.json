@@ -1,14 +1,14 @@
 {
-  "name": "@universe-ui/core",
-  "version": "0.0.0",
+  "name": "paintbox",
+  "version": "0.0.1-alpha.0",
   "description": "",
   "main": "dist/cjs/index.js",
   "module": "dist/es/index.js",
   "types": "dist/types",
-  "homepage": "https://allangomessl.github.io/universe-ui",
+  "homepage": "https://allangomessl.github.io/paintbox",
   "repository": {
     "type": "git",
-    "url": "https://github.com/allangomessl/universe-ui.git"
+    "url": "https://github.com/allangomessl/paintbox.git"
   },
   "files": [
     "dist"
@@ -18,12 +18,9 @@
   },
   "scripts": {
     "clean": "rm -rf dist",
-    "start": "start-storybook -p 6006 --docs --no-dll",
-    "docs": "build-storybook -o ./docs --docs --no-dll",
-    "build:es": "tsc -m es2015 --outDir dist/es -p tsconfig.build.json",
-    "build:cjs": "tsc -m CommonJS --outDir dist/cjs -p tsconfig.build.json",
+    "build:es": "tsc -m es2015 --outDir dist/es",
+    "build:cjs": "tsc -m CommonJS --outDir dist/cjs",
     "build": "npm run clean && npm run build:es && npm run build:cjs",
-    "prepack": "npm run build",
     "postpack": "npm run clean"
   },
   "keywords": [],
@@ -38,9 +35,8 @@
     "styled-components": "latest"
   },
   "devDependencies": {
-    "styled-icons": "latest",
-    "@types/react": "latest",
     "@types/lodash": "latest",
+    "@types/react": "latest",
     "@types/styled-components": "latest",
     "babel-loader": "latest",
     "faker": "latest",
@@ -50,6 +46,7 @@
     "markdown-loader": "latest",
     "moment": "latest",
     "styled-components": "latest",
+    "styled-icons": "latest",
     "typescript": "latest"
   }
 }

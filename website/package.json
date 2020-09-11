@@ -1,6 +1,6 @@
 {
-  "name": "@universe-ui/website",
-  "version": "0.0.0",
+  "name": "@paintbox/website",
+  "version": "0.0.1-alpha.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -9,17 +9,17 @@
     "export": "next export"
   },
   "dependencies": {
-    "babel-plugin-styled-components": "latest",
-    "@universe-ui/core": "0.0.0",
     "@mdx-js/loader": "latest",
+    "@next/bundle-analyzer": "latest",
     "@next/mdx": "latest",
+    "babel-plugin-styled-components": "latest",
     "moment": "latest",
     "next": "latest",
-    "prism-react-renderer": "latest",
-    "react-live": "latest",
-    "next-transpile-modules": "latest",
-    "@next/bundle-analyzer": "latest",
     "next-compose-plugins": "latest",
-    "nprogress": "latest"
+    "next-transpile-modules": "latest",
+    "nprogress": "latest",
+    "paintbox": "^0.0.1-alpha.0",
+    "prism-react-renderer": "latest",
+    "react-live": "latest"
   }
 }
