@@ -1,6 +1,6 @@
 {
   "name": "paintbox",
-  "version": "0.0.1-alpha.0",
+  "version": "0.0.1-alpha.1",
   "description": "",
   "main": "dist/cjs/index.js",
   "module": "dist/es/index.js",
@@ -14,7 +14,7 @@
     "dist"
   ],
   "publishConfig": {
-    "tag": "latest"
+    "access": "public"
   },
   "scripts": {
     "clean": "rm -rf dist",
@@ -48,5 +48,6 @@
     "styled-components": "latest",
     "styled-icons": "latest",
     "typescript": "latest"
-  }
+  },
+  "gitHead": "5ab7cec6fcc29cb445091acaee2aae05e8c808a8"
 }
