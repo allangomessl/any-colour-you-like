@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Screen, Col, Input, Button, Slot } from "@universe-ui/core"
+import { Screen, Col, Input, Button, Slot } from "paintbox"
 import { useParams, useNavigate } from 'react-router'
 import styled from 'styled-components'
 import { useForm } from "react-hook-form";

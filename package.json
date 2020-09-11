@@ -1,9 +1,8 @@
 {
-  "name": "universe-ui",
-  "version": "1.0.0-alpha.95",
+  "name": "paintbox",
   "private": true,
   "description": "",
-  "homepage": "https://allangomessl.github.io/universe-ui",
+  "homepage": "https://allangomessl.github.io/paintbox",
   "workspaces": [
     "core",
     "integrations/*",
@@ -11,22 +10,16 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/allangomessl/universe-ui.git"
+    "url": "https://github.com/allangomessl/paintbox.git"
   },
   "scripts": {
-    "start": "yarn workspace @universe-ui/website dev"
+    "start": "yarn workspace @paintbox/website dev",
+    "clean": "lerna run clean",
+    "build": "lerna run build"
   },
   "keywords": [],
   "author": "Allan Gomes <allanmaiagomes@gmail.com>",
   "license": "ISC",
-  "dependencies": {
-    "fuse.js": "^6.4.1",
-    "imask": "^6.0.5"
-  },
-  "peerDependencies": {
-    "moment": "2",
-    "styled-components": "5"
-  },
   "devDependencies": {
     "lerna": "latest",
     "npm-run-all": "latest",

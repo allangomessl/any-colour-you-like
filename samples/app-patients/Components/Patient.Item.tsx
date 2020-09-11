@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Col, Item, Avatar, features } from '@universe-ui/core'
+import { Col, Item, Avatar, features } from 'paintbox'
 import moment from 'moment'
 import { Patient } from '../Api/Patient'
 import styled, { css } from 'styled-components'

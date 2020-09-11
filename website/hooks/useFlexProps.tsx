@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Col, Row, Button } from "@universe-ui/core"
+import { Col, Row, Button } from "paintbox"
 import styled from "styled-components";
 import { CodeBlock } from '../mdx/CodeBlock'
 

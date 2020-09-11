@@ -5282,9 +5282,9 @@ unist-util-visit@2.0.3, unist-util-visit@^2.0.0:
     unist-util-is "^4.0.0"
     unist-util-visit-parents "^3.0.0"
 
-universe-ui@^1.0.0-alpha.95:
+paintbox@^1.0.0-alpha.95:
   version "1.0.0-alpha.95"
-  resolved "https://registry.yarnpkg.com/universe-ui/-/universe-ui-1.0.0-alpha.95.tgz#2572cbbd9e31e559367dd02ac4ebd6963ceac533"
+  resolved "https://registry.yarnpkg.com/paintbox/-/paintbox-1.0.0-alpha.95.tgz#2572cbbd9e31e559367dd02ac4ebd6963ceac533"
   integrity sha512-64rJSPw8olK1jTIyEjlopuGEWn83aQbehNKJ44gaFKtSHdAvo6veEC/czp4gNP94yEsRAJxLPTzITuYTQ1U8gw==
   dependencies:
     fuse.js "^6.4.1"

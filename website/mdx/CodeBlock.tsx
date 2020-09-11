@@ -1,6 +1,6 @@
 import theme from "prism-react-renderer/themes/vsDark"
 import React, { useState } from "react"
-import { Box, Link, Row, mixins } from '@universe-ui/core'
+import { Box, Link, Row, mixins } from 'paintbox'
 import styled from 'styled-components'
 import { LiveEditor, LiveError, LivePreview, LiveProvider } from "react-live"
 import scope from "./react-live-scope"

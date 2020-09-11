@@ -18,7 +18,7 @@
     "baseUrl": ".",
     "paths": {
       "@side-of-the/rp": ["./src/rp"],
-      "universe-ui": ["./src"],
+      "paintbox": ["./src"],
       "samples/app-patients": ["./src/samples/app-patients"],
       "storybook": ["./stories"]
     },

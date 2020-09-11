@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { List, Screen, Button, Row, Slot } from '@universe-ui/core'
+import { List, Screen, Button, Row, Slot } from 'paintbox'
 import { Patient } from '../../Api/Patient'
 import { PatientCard } from '../../Components/Patient.Item'
 import { PatientFormScreen } from './PatientForm.screen'

@@ -1,5 +1,5 @@
 import { useRef, useEffect } from 'react'
-import { Form, Field, Html } from '@universe-ui/core'
+import { Form, Field, Html } from 'paintbox'
 import * as lib from 'unform'
 
 Form.register(lib.Form)

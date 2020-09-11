@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Screen, useSlot, Button, useProps, mixins } from '@universe-ui/core'
+import { Screen, useSlot, Button, useProps, mixins } from 'paintbox'
 import { List } from '../collections/List'
 import { Plus } from '@styled-icons/boxicons-regular/Plus'
 import { Trash } from '@styled-icons/boxicons-regular/Trash'

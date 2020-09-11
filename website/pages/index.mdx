@@ -1,15 +1,17 @@
-# UNIVERSE UI
+import { Logo } from '../components/Logo'
 
-<img src="/logo.png" alt="logo" width="100%"/>
+<h1 style={{ display: 'none' }}>PAINTBOX</h1>
+
+<Logo />
 
 ## Install
 
 ```sh
 # npm
-npm i @universe-ui/core styled-components
+npm i paintbox styled-components
 
 # yarn
-yarn add @universe-ui/core styled-components
+yarn add paintbox styled-components
 ```
 
 
@@ -17,8 +19,8 @@ yarn add @universe-ui/core styled-components
 
 in your `app.tsx`
 ```tsx
-import { Root } from "@universe-ui/core"
-import { darkSide } from "@universe-ui/themes"
+import { Root } from "paintbox"
+import { darkSide } from "@paintbox/themes"
 
 export const App = () => {
   <Root theme={darkSide}>
@@ -31,7 +33,7 @@ export const App = () => {
 ### Using Router
 
 ```tsx
-import { Link } from "@universe-ui/core"
+import { Link } from "paintbox"
 import { Link as RouterLink } from 'react-router-dom'
 
 Link.initialize(RouterLink)
@@ -42,3 +44,4 @@ Link.initialize(RouterLink)
 <Button to="path" /> // render as Router Link
 <Button href="path" /> // render as normal anchor
 ```
+

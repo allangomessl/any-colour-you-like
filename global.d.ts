@@ -27,7 +27,7 @@
 //     | 'tr'
 //     | 'ul'
 
-//   import * as Lib from 'universe-ui'
+//   import * as Lib from 'paintbox'
 
 //   export type Components = Lib & {
 //     [key in ComponentType]?: React.ComponentType<{children: React.ReactNode}>

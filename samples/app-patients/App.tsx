@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Link, Breadcrumb, Item, Row, Col, Root, Nav } from '@universe-ui/core'
+import { Link, Breadcrumb, Item, Row, Col, Root, Nav } from 'paintbox'
 import { Link as RouterLink, HashRouter as Router } from 'react-router-dom'
 import './Handlers'
 // import styled from 'styled-components';

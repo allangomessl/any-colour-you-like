@@ -1,15 +1,15 @@
 
 # Universe UI
 
-[![alt](https://raw.githubusercontent.com/allangomessl/universe-ui/master/static/full-logo.png)](https://allangomessl.github.io/universe-ui)
+[![alt](https://raw.githubusercontent.com/allangomessl/paintbox/master/static/full-logo.png)](https://allangomessl.github.io/paintbox)
 
 > :warning: **THIS PROJECT IS UNDER DEVELOPMENT**: we don't recommend its use in production yet!
 
-> [![NPM version](https://img.shields.io/npm/v/universe-ui.svg)](https://www.npmjs.com/package/universe-ui)
+> [![NPM version](https://img.shields.io/npm/v/paintbox.svg)](https://www.npmjs.com/package/paintbox)
 
 <br /><br />
 
-[DOCUMENTATION HERE](https://universe-ui.vercel.app/)
+[DOCUMENTATION HERE](https://paintbox.vercel.app/)
 
 <br /><br />
 
@@ -26,10 +26,10 @@
 
 ```shell
 # NPM
-npm i universe-ui
+npm i paintbox
 
 # YARN
-yarn add universe-ui
+yarn add paintbox
 
 ```
 
@@ -44,7 +44,7 @@ yarn add universe-ui
 If you use any Router like `react-router` you can do setup below to use Routing in your components
 
 ```tsx
-import { Link } from 'universe-ui';
+import { Link } from 'paintbox';
 import { Link as RouterLink } from 'react-router-dom';
 
 Link.initialize(RouterLink);
@@ -57,4 +57,4 @@ Link.initialize(RouterLink);
   
 ```
 
-[See more here](https://allangomessl.github.io/universe-ui)
+[See more here](https://allangomessl.github.io/paintbox)

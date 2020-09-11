@@ -19,7 +19,7 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@universe-ui/core": ["../node_modules/@universe-ui/core"]
+      "paintbox": ["../node_modules/paintbox"]
     }
   },
   "include": [

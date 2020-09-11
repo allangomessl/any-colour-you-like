@@ -7,7 +7,7 @@ const mdx = require('@next/mdx')({
 
 module.exports = withPlugins([
   transpileModules([
-    '@universe-ui/core'
+    'paintbox'
   ]),
   [mdx, {
     pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx']

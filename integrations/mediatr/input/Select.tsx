@@ -1,7 +1,7 @@
 import * as React from 'react'
-import { List as UIList } from '@universe-ui/core'
+import { List as UIList } from 'paintbox'
 import { Command } from '@mediatr/core'
-import { useHandleList, useSearch } from '@mediatr/react
+import { useHandleList, useSearch } from '@mediatr/react'
 import { render } from '../tags'
 import { Model } from '@mediatr/data/dist/types'
 

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Form as UIForm } from '@universe-ui/core'
+import { Form as UIForm } from 'paintbox'
 import { useCommand } from '@mediatr/react'
 import { Model } from '@mediatr/data'
 

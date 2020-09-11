@@ -1,4 +1,4 @@
-import { Form, useForm, Field } from '@universe-ui/core'
+import { Form, useForm, Field } from 'paintbox'
 import * as lib from 'react-hook-form'
 
 Form.hook = ({ onSubmit, ...props }) => {

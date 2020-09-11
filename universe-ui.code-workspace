@@ -20,7 +20,7 @@
       "name": "💾 ROOT",
       "path": "."
     }
-	],
+  ],
   "settings": {
     "typescript.tsdk": "node_modules/typescript/lib",
     "files.exclude": {

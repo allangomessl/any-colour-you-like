@@ -1,11 +1,12 @@
 import '../styles/globals.css'
 import { MDXProvider } from '../mdx'
-import { Root, Col, Link } from '@universe-ui/core'
+import { Root, Col, Link } from 'paintbox'
 import RouterLink from 'next/link'
 
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
 import Router from 'next/router'
+import { Logo } from '../components/Logo';
 
 Router.events.on('routeChangeStart', () => NProgress.start()); 
 Router.events.on('routeChangeComplete', () => NProgress.done()); 
@@ -24,7 +25,7 @@ function MyApp({ Component, pageProps }) {
       <Root dir='row' h='100vh'>
         <Col w='300px' gap={4} border='R2' scrollable>
           <Link to='/'>
-            <img src='/logo.png' height='100px' />
+            <Logo />
           </Link>
           <Col padding='3'>
             <h3>Inputs</h3>

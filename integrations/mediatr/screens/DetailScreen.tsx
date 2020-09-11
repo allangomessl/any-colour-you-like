@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Screen, Slot, useSlot, Button, useProps, mixins } from '@universe-ui/core'
+import { Screen, Slot, useSlot, Button, useProps, mixins } from 'paintbox'
 import { Form } from '../collections/Form'
 import { SaveOutline } from '@styled-icons/evaicons-outline/SaveOutline'
 
